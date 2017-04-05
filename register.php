@@ -1,6 +1,8 @@
 <?php
 require_once 'fonctions.php';
 
+session_start();
+
 if(!empty($_POST)){//Vérifier les champs
     $errors = array();
     require_once 'Utile/db.php';
@@ -24,7 +26,7 @@ if(!empty($_POST)){//Vérifier les champs
         }
     }
 
-    if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || $_POST['pass'] != $_POST['passconfirm']){
+    if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || $_POST['pass'] != $_POST['passconfirm'] || !preg_match('/^[a-zA-Z0-9]/', $_POST['pass'])){
         $errors['pass'] = "Vous devez entrer un mot de passe valide (minimum 4 caractères) qui soit identique dans les deux champs.";
     }
 
@@ -48,6 +50,7 @@ if(!empty($_POST)){//Vérifier les champs
                 Retournez à <a href="index.php" class="boutonCo">l'accueil</a> pour vous connecter.
             </div>
         </body>
+        </html>
         <?php
     }
     //debug($errors);
@@ -68,6 +71,10 @@ if(!empty($_POST)){//Vérifier les champs
     <div id="accueil">
         Inscription
     </div>
+
+    <?php
+        include 'Utile/header.php';
+    ?>
 
     <div id="divtitre" class="inscription">
         Donc vous n'avez pas de compte ?<br>
@@ -94,11 +101,11 @@ if(!empty($_POST)){//Vérifier les champs
             <form method="post" action="">
                 Nous avons besoin de certaines coordonnées pour que votre inscription soit validée.<br>
                 <br>
-                Nom<br><input type="text" name="nom"><br>
-                Prénom<br><input type="text" name="prenom"><br>
-                Mail<br><input type="email" name="mail"><br>
-                Mot de passe<br><input type="password" name="pass"><br>
-                Confirmez votre mot de passe<br><input type="password" name="passconfirm"><br>
+                Nom<br><input class="entree" type="text" name="nom" placeholder="Entrez votre nom"><br>
+                Prénom<br><input class="entree" type="text" name="prenom" placeholder="Entrez votre prénom"><br>
+                Mail<br><input class="entree" type="email" name="mail" placeholder="Entrez votre adresse mail"><br>
+                Mot de passe<br><input class="entree" type="password" name="pass" placeholder="Entrez votre mot de passe"><br>
+                Confirmez votre mot de passe<br><input class="entree" type="password" name="passconfirm" placeholder="Confirmez votre mot de passe"><br>
                 <button type="submit">M'inscrire</button>
             </form>
             Vous avez déjà un compte ? <a href="index.php" class="boutonCo">Retour à l'accueil</a>.<br>
