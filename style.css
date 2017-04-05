@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "Century Gothic";
+    src: url("Font/ufonts.com_century-gothic.ttf");
+}
+html, body {
+    width:100%;
+    margin:0;
+    height:0;
+    padding:0;
+    color: #FFFFFF;
+    background-color: #323338;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-position:center center;
+    font-family: Century Gothic, "Century Gothic", Avenir;
+}
+
+#accueil{
+    margin: 5px 0px 5px 0px;
+    background-color: #111111;
+    text-align: center;
+    font-size: 40px;
+    height: 55px;
+    width: 100%;
+}
+#emerror{
+    color: #ea1f01;
+}
+#emok{
+    color: #0064f4;
+}
+
+#divtitre{
+    margin: 15px 0px 0px 0px;
+    background-color: #323338;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+}
+.inscription{
+    height: 50px;
+}
+.imageAccueil{
+    height: 350px;
+    width: 350px;
+}
+
+#connexion{
+     margin-top: 10px;
+     margin-bottom: 20px;
+     margin-left: auto;
+     margin-right: auto;
+     background-color: #111111;
+     height: auto;
+     width: 70%;
+     border-radius: 15px;
+     text-align: center;
+     font-size: 30px;
+ }
+#title hr{
+    width: 80%;
+}
+#formulaireCo{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    background-color: #111111;
+    text-align: left;
+    font-size: 15px;
+    width: 75%;
+}
+.boutonCo{
+    text-decoration: none;
+}
+.boutonCo:hover{
+    color: #DD910A;
+}
+
+.alerterror{
+    background-color: #ea1f01;
+    color: #000011;
+    height: auto;
+    width: 75%;
+    font-size: 12px;
+    margin: 0px auto 0px auto;
+    border-radius: 5px;
+    padding-left: 3px;
+}
+.inscriptionok{
+    margin: 0px 0px 0px 0px;
+    background-color: #0064f4;
+    text-align: center;
+    font-size: 15px;
+    width: 100%;
+    height: auto;
+    color: #FFFFFF;
+}
+
+/*---------------Header---------------*/
+#header{
+    margin: 10px auto 0px auto;
+    background-color: #222222;
+    text-align: center;
+    font-size: 14px;
+    height: auto;
+    width: 100%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 5px;
+}
+.boutonDeco{
+    text-decoration: none;
+    color: #ffffff;
+}
+.boutonDeco:hover{
+    color: #DD910A;
+}
+
+/*---------------Footer---------------*/
+#footer{
+    margin: 10px auto 0px auto;
+    background-color: #222222;
+    text-align: center;
+    font-size: 9px;
+    height: auto;
+    width: 50%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 5px;
+    bottom: 0;
+}
