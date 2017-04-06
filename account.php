@@ -22,10 +22,23 @@
             include 'Utile/header.php';
         ?>
 
-        <div class="barrenom">
-            Vous êtes connecté(e) en temps que <a href="modif.php"><?= $_SESSION['auth']->prenom; ?></a>
-            ---
-            <a href="account.php">Retour à l'accueil</a>
+        <?php
+            include 'Utile/barremenu.php';
+        ?>
+
+        <div id="listeFond">
+            <div id="listeTitre">
+                Fichiers récents
+                <hr>
+            </div>
+            <div id="liste">
+                <?php
+                for ($fichier = 1; $fichier <= 7; $fichier++)
+                {
+                    echo 'Fichier test n°' . $fichier . '.<br>';
+                }
+                ?>
+            </div>
         </div>
 
     </body>

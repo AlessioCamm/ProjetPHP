@@ -1,7 +1,14 @@
 <?php
-require_once 'fonctions.php';
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+if(isset($_SESSION['auth'])){
 
-session_start();
+    header('Location: account.php');
+    exit();
+}
+
+require_once 'fonctions.php';
 
 if(!empty($_POST)){//Vérifier les champs
     $errors = array();
@@ -101,14 +108,14 @@ if(!empty($_POST)){//Vérifier les champs
             <form method="post" action="">
                 Nous avons besoin de certaines coordonnées pour que votre inscription soit validée.<br>
                 <br>
-                Nom<br><input class="entree" type="text" name="nom" placeholder="Entrez votre nom"><br>
-                Prénom<br><input class="entree" type="text" name="prenom" placeholder="Entrez votre prénom"><br>
-                Mail<br><input class="entree" type="email" name="mail" placeholder="Entrez votre adresse mail"><br>
-                Mot de passe<br><input class="entree" type="password" name="pass" placeholder="Entrez votre mot de passe"><br>
-                Confirmez votre mot de passe<br><input class="entree" type="password" name="passconfirm" placeholder="Confirmez votre mot de passe"><br>
-                <button type="submit">M'inscrire</button>
+                Nom<br><input class="entreeIns" type="text" name="nom" placeholder="Entrez votre nom"><br>
+                Prénom<br><input class="entreeIns" type="text" name="prenom" placeholder="Entrez votre prénom"><br>
+                Mail<br><input class="entreeIns" type="email" name="mail" placeholder="Entrez votre adresse mail"><br>
+                Mot de passe<br><input class="entreeIns" type="password" name="pass" placeholder="Entrez votre mot de passe"><br>
+                Confirmez votre mot de passe<br><input class="entreeIns" type="password" name="passconfirm" placeholder="Confirmez votre mot de passe"><br>
+                <button type="submit" class="boutonInsReg">M'inscrire</button>
             </form>
-            Vous avez déjà un compte ? <a href="index.php" class="boutonCo">Retour à l'accueil</a>.<br>
+            Vous avez déjà un compte ? <a href="index.php" class="lienInd">Retour à l'accueil</a>.<br>
             <br>
             Veillez à avoir un mail et un mot de passe qui comptent plus de 4 caractères chacun.<br>
             En créant un compte, vous confirmez respecter les règles suivantes :<br>

@@ -6,6 +6,11 @@ function debug($variable){
 
 }
 
+function str_random($length){
+    $alpha = "0123456789AZERTYUIOPQSDFGHJKLMWXCVBNazertyuiopqsdfghjklmwxcvbn";
+    return substr(str_shuffle(str_repeat($alpha, $length)), 0, $length);
+}
+
 function logged_only(){
     if(session_status() == PHP_SESSION_NONE){
         session_start();

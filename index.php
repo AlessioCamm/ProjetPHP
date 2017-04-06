@@ -1,4 +1,5 @@
 <?php
+
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
@@ -29,7 +30,7 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
             </head>
             <body>
                 <div class="connexionerror">
-                    Identifiant ou mot de passe incorrect
+                    Identifiant/mail ou mot de passe incorrect
                 </div>
             </body>
         </html>
@@ -38,7 +39,6 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -73,10 +73,10 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
                 <form method="POST">
                     Mail :<br><input class="entree" type="email" name="mail" placeholder="Entrez votre mail ici"><br>
                     Mot de passe :<br><input class="entree" type="password" name="pass" placeholder="Entrez votre mot de passe ici"><br>
-                    <button type="submit">Se connecter</button>
+                    <button type="submit" class="buttonCoIndex">Se connecter</button>
                 </form>
                 <br>
-                Pas de compte ? Pas de souci. <a href="register.php" class="boutonCo">Incrivez-vous ici</a> !<br>
+                Pas de compte ? Pas de souci. <a href="register.php" class="lienInd">Incrivez-vous ici</a> !<br>
                 <br>
                 Sur ce site, vous pourrez partager (et accessoirement sauvegarder) des fichiers divers avec d'autres utilisateurs.<br>
                 Attention de bien respecter les règles mentionnées lors de votre insciption.
