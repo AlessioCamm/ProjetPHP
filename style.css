@@ -49,15 +49,15 @@ html, body {
 
 #connexion{
      margin-top: 10px;
-     margin-bottom: 20px;
+     margin-bottom:20px;
      margin-left: auto;
      margin-right: auto;
-     background-color: #111111;
+     background-color: #323338;
      height: auto;
      width: 70%;
      border-radius: 15px;
      text-align: center;
-     font-size: 30px;
+     font-size: 25px;
  }
 #title hr{
     width: 80%;
@@ -67,18 +67,35 @@ html, body {
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 15px;
-    background-color: #111111;
+    padding-bottom: 5px;
+    background-color: #323338;
     text-align: left;
     font-size: 15px;
     width: 75%;
 }
+#actuel{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #2fc190;
+    color: #000011;
+    text-align: center;
+    font-size: 15px;
+    width: 70%;
+    border-radius: 10px;
+}
 .lienInd{
     text-decoration: none;
 }
-.lienInd:hover{
-    color: #DD910A;
+.lienInd:visited{
+    color: #00aa46;
 }
+.lienInd:hover{
+     color: #DD910A;
+ }
 .buttonCoIndex{
     margin-top: 7px;
     width: 200px;
@@ -130,12 +147,12 @@ html, body {
 }
 .connexionok{
     margin: 0px 0px 0px 0px;
-    background-color: #00cf48;
+    background-color: #00d252;
     text-align: center;
     font-size: 15px;
     width: 100%;
     height: auto;
-    color: #FFFFFF;
+    color: #000000;
 }
 .barrenom{
     margin: 0px auto 0px auto;
@@ -156,7 +173,7 @@ html, body {
     color: #0064f4;
 }
 .entree{
-    background-color: #111111;
+    background-color: #323338;
     color: #FFFFFF;
     width: 230px;
     border-bottom-color: #2fc190;
@@ -165,7 +182,7 @@ html, body {
     border-top-style: none;
 }
 .entreeIns{
-    background-color: #111111;
+    background-color: #323338;
     color: #FFFFFF;
     width: 230px;
     border-bottom-color: #00b8e5;
@@ -291,13 +308,14 @@ html, body {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #ffb32f;
+    background-color: #323338;
     height: auto;
     width: 70%;
     border-radius: 15px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
 }
+
 #title hr{
     width: 80%;
 }
@@ -307,18 +325,20 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 15px;
-    background-color: #ffb32f;
+    /*background-color: #ffb32f;*/
     text-align: left;
     font-size: 15px;
     width: 75%;
 }
 .adminP{
-    background-color: #bf8b27;
     border-radius: 10px;
     padding: 3px;
 }
+.adminP:hover{
+    background-color: #bf8b27;
+}
 .nomprenomadmin{
-    color:#000000;
+    color:#EEEEEE;
 }
 .idadmin{
     color: #00afff;

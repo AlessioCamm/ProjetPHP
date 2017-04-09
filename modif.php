@@ -3,8 +3,9 @@
     require_once 'fonctions.php';
     logged_only();
 
+    //Mot de passe
     if(!empty($_POST)){
-        if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || ($_POST['pass'] != $_POST['passconfirm']) || !preg_match('/^[a-zA-Z0-9]/', $_POST['pass'])){
+        if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || ($_POST['pass'] != $_POST['passconfirm']) || preg_match('/[@#&é"(§è!çà)ë“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['pass'])){
             ?>
             <html>
             <head>
@@ -13,8 +14,8 @@
             </head>
             <body>
             <div class="connexionerror">
-                Les mots de passe ne correspondent pas<br>
-                Veillez à écrire des mots de passes identiques en respéctant les règles
+                Votre mot de passe est inchangé<br>
+                Veillez à écrire des mots de passes identiques en respéctant les règles si vous souhaitez le modifier
             </div>
             </body>
             </html>
@@ -40,6 +41,84 @@
 
         }
     }
+
+    //Nom
+    if(!empty($_POST)){
+        if(empty($_POST['nom']) || ($_POST['nom'] != $_POST['nomconfirm']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['nom'])){
+            ?>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="style.css" />
+            </head>
+            <body>
+            <div class="connexionerror">
+                Votre nom est inchangé<br>
+                Veillez à écrire un nom indentique dans les deux champs si vous souhaitez le modifier
+            </div>
+            </body>
+            </html>
+            <?php
+        }
+        else{
+            $user_id = $_SESSION['auth']->id;
+            $nom = ($_POST['nom']);
+            $pdo->prepare('UPDATE utilisateurs SET nom = ? WHERE id = ?')->execute([$nom, $user_id]);
+            ?>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="style.css" />
+            </head>
+            <body>
+            <div class="connexionok">
+                Votre nom a bien été mis à jour
+            </div>
+            </body>
+            </html>
+            <?php
+
+        }
+    }
+
+    //Prénom
+    if(!empty($_POST)){
+        if(empty($_POST['prenom']) || ($_POST['prenom'] != $_POST['prenomconfirm']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['prenom'])){
+            ?>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="style.css" />
+            </head>
+            <body>
+            <div class="connexionerror">
+                Votre nom est inchangé<br>
+                Veillez à écrire un nom indentique dans les deux champs si vous souhaitez le modifier
+            </div>
+            </body>
+            </html>
+            <?php
+        }
+        else{
+            $user_id = $_SESSION['auth']->id;
+            $prenom = ($_POST['prenom']);
+            $pdo->prepare('UPDATE utilisateurs SET prenom = ? WHERE id = ?')->execute([$prenom, $user_id]);
+            ?>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="style.css" />
+            </head>
+            <body>
+            <div class="connexionok">
+                Votre prénom a bien été mis à jour
+            </div>
+            </body>
+            </html>
+            <?php
+
+        }
+    }
 ?>
 
 
@@ -47,13 +126,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Vos infos</title>
+        <title>Paramètres</title>
         <link rel="stylesheet" href="style.css" />
     </head>
 
     <body>
         <div id="accueil">
-            Vos informations
+            Paramètres
         </div>
 
         <?php
@@ -78,9 +157,14 @@
             Allez-y, c'est simple.<br>
         </div>
 
+        <div id="actuel">
+            <strong>Vos infos actuelles :</strong> <?= $_SESSION['auth']->prenom;?> <?= $_SESSION['auth']->nom;?>, <?= $_SESSION['auth']->mail;?>.<br>
+            (Vous devrez peut-être vous reconnectez pour effectuer les changements correctement)
+        </div>
+
         <div id="connexion">
             <div id="title">
-                Formulaire de modification
+                Modifiez votre mot de passe
                 <hr>
             </div>
             <div id="formulaireCo">
@@ -90,10 +174,30 @@
                     <input class="entree" type="password" name="passconfirm" placeholder="Confirmez votre nouveau mot de passe"><br>
                     <button type="submit" class="buttonCoIndex">Changer de mot de passe</button>
                 </form>
-                <br>
+                Veillez à avoir un mot de passe de minimum 4 caractères, sans caractères spéciaux.
             </div>
+            <div id="formulaireCo">
+                <form method="post" action="">
+                    <br>
+                    <input class="entree" type="text" name="nom" placeholder="Entrez votre nouveau nom"><br>
+                    <input class="entree" type="text" name="nomconfirm" placeholder="Confirmez votre nouveau nom"><br>
+                    <button type="submit" class="buttonCoIndex">Changer de nom</button>
+                </form>
+                Veillez à avoir un nom sans caractères spéciaux.
+            </div>
+            <div id="formulaireCo">
+                <form method="post" action="">
+                    <br>
+                    <input class="entree" type="text" name="prenom" placeholder="Entrez votre nouveau prénom"><br>
+                    <input class="entree" type="text" name="prenomconfirm" placeholder="Confirmez votre nouveau prénom"><br>
+                    <button type="submit" class="buttonCoIndex">Changer de prénom</button>
+                </form>
+                Veillez à avoir un prénom sans caractères spéciaux.
+            </div>
+
         </div>
 
+        <!--Partie Admin-->
         <?php if($_SESSION['auth']->id == '19'){
             $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
             $reponse = $bdd->query('SELECT * FROM utilisateurs');
@@ -121,6 +225,7 @@
         <?php
         }
         ?>
+        <!--Fin partie Admin-->
 
     </body>
 </html>

@@ -14,11 +14,11 @@ if(!empty($_POST)){//Vérifier les champs
     $errors = array();
     require_once 'Utile/db.php';
 
-    if(empty($_POST['nom']) || !preg_match('/^[a-zA-Z]/', $_POST['nom'])){
+    if(empty($_POST['nom']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['nom'])){
         $errors['nom'] = "Votre nom n'est pas valide, veuillez n'entrer que des lettres.";
     }
 
-    if(empty($_POST['prenom']) || !preg_match('/^[a-zA-Z]/', $_POST['prenom'])){
+    if(empty($_POST['prenom']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['prenom'])){
         $errors['prenom'] = "Votre prénom n'est pas valide, veuillez n'entrer que des lettres.";
     }
 
@@ -33,7 +33,7 @@ if(!empty($_POST)){//Vérifier les champs
         }
     }
 
-    if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || $_POST['pass'] != $_POST['passconfirm'] || !preg_match('/^[a-zA-Z0-9]/', $_POST['pass'])){
+    if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || $_POST['pass'] != $_POST['passconfirm'] || preg_match('/[@#&é"(§è!çà)ë“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['pass'])){
         $errors['pass'] = "Vous devez entrer un mot de passe valide (minimum 4 caractères) qui soit identique dans les deux champs.";
     }
 
