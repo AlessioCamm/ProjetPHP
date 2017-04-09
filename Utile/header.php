@@ -7,7 +7,7 @@
 ?>
 
 <div id="header">
-    <?php if(isset($_SESSION['auth'])): ?>
+    <?php if(isset($_SESSION['auth'])):?>
         Bonjour, <a href="modif.php" class="nom"><?= $_SESSION['auth']->prenom; ?></a>
         --
         <a href="logout.php" class="boutonDeco">Se déconnecter</a>
@@ -17,3 +17,12 @@
         <a href="index.php" class="boutonDeco">Se connecter</a>
     <?php endif; ?>
 </div>
+
+<?php if($_SESSION['auth']->id == '19'){
+    ?>
+    <div id="headeradmin">
+        Vous êtes en mode administrateur
+    </div>
+    <?php
+    }
+?>

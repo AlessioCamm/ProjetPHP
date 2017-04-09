@@ -47,13 +47,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Modifier vos infos</title>
+        <title>Vos infos</title>
         <link rel="stylesheet" href="style.css" />
     </head>
 
     <body>
         <div id="accueil">
-            Modifier vos informations
+            Vos informations
         </div>
 
         <?php
@@ -62,10 +62,19 @@
 
         <div class="barrenom">
             <a href="account.php">Retour à l'accueil</a>
+            <?php if($_SESSION['auth']->id == '19'){
+                ?>
+                <style>.barrenom{
+                        border-top-left-radius: 0px;
+                        border-top-right-radius: 0px;
+                    }</style>
+                <?php
+            }
+            ?>
         </div>
 
         <div id="divtitre" class="inscription">
-            Vous voulez modifier des informations ?<br>
+            Alors <?= $_SESSION['auth']->prenom; ?>, vous voulez modifier des informations ?<br>
             Allez-y, c'est simple.<br>
         </div>
 
@@ -79,11 +88,39 @@
                     <br>
                     <input class="entree" type="password" name="pass" placeholder="Changer votre mot de passe"><br>
                     <input class="entree" type="password" name="passconfirm" placeholder="Confirmez votre nouveau mot de passe"><br>
-                    <button type="submit">Changer de mot de passe</button>
+                    <button type="submit" class="buttonCoIndex">Changer de mot de passe</button>
                 </form>
                 <br>
             </div>
         </div>
+
+        <?php if($_SESSION['auth']->id == '19'){
+            $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
+            $reponse = $bdd->query('SELECT * FROM utilisateurs');
+            ?>
+        <div id="admin">
+            <div id="title">
+                Infos des utilisateurs
+                <hr>
+            </div>
+            <div id="adminIn">
+            <?php
+            while($donnees = $reponse->fetch()){?>
+                <p class="adminP">
+                    <strong class="nomprenomadmin"><?php echo $donnees['prenom']; ?> <?php echo $donnees['nom']; ?></strong>
+                     -
+                    <strong class="idadmin">ID n°<?php echo $donnees['id']; ?></strong>
+                    -
+                    <strong class="mailadmin">Mail : <?php echo $donnees['mail']; ?></strong><br>
+                </p>
+            <?php  }
+            $reponse->closeCursor();
+            ?>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
 
     </body>
 </html>

@@ -13,3 +13,12 @@
     -----
     <a href="account.php" class="BarreMenuAcc">Accueil</a>
 </div>
+<?php if($_SESSION['auth']->id == '19'){
+    ?>
+    <style>.barrenom{
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }</style>
+    <?php
+}
+?>
