@@ -11,6 +11,7 @@ logged_only();
         <meta charset="UTF-8">
         <title>Informatique</title>
         <link rel="stylesheet" href="style.css" />
+        <style>.barrenom .BarreMenuInfo{color:#00aaff}</style>
     </head>
 
     <body>

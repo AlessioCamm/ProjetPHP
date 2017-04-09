@@ -11,6 +11,7 @@
         <meta charset="UTF-8">
         <title>Fichiers PDF</title>
         <link rel="stylesheet" href="style.css" />
+        <style>.barrenom .BarreMenuPDF{color:#00aaff}</style>
     </head>
 
     <body>

@@ -11,6 +11,7 @@
         <meta charset="UTF-8">
         <title>Graphisme</title>
         <link rel="stylesheet" href="style.css" />
+        <style>.barrenom .BarreMenuGraph{color:#00aaff}</style>
     </head>
 
     <body>

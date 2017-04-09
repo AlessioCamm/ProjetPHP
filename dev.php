@@ -11,6 +11,7 @@
         <meta charset="UTF-8">
         <title>Développement</title>
         <link rel="stylesheet" href="style.css" />
+        <style>.barrenom .BarreMenuDev{color:#00aaff}</style>
     </head>
 
     <body>

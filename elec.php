@@ -9,13 +9,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Electronnique</title>
+        <title>Electronique</title>
         <link rel="stylesheet" href="style.css" />
+        <style>.barrenom .BarreMenuElec{color:#00aaff}</style>
     </head>
 
     <body>
         <div id="accueil">
-            Electronnique
+            Electronique
         </div>
 
         <?php

@@ -11,6 +11,7 @@
         <meta charset="UTF-8">
         <title>Fichiers Word</title>
         <link rel="stylesheet" href="style.css" />
+        <style>.barrenom .BarreMenuWord{color:#00aaff}</style>
     </head>
 
     <body>

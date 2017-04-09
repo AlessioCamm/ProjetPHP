@@ -11,6 +11,7 @@
         <meta charset="UTF-8">
         <title>Accueil</title>
         <link rel="stylesheet" href="style.css" />
+        <style>.barrenom .BarreMenuAcc{color: #00aaff}</style>
     </head>
 
     <body>
@@ -35,7 +36,7 @@
                 <?php
                 for ($fichier = 1; $fichier <= 7; $fichier++)
                 {
-                    echo 'Fichier test n°' . $fichier . '.<br>';
+                    echo 'Fichier test n°' . $fichier . '<br>';
                 }
                 ?>
             </div>
