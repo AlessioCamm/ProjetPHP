@@ -8,7 +8,11 @@
 
 <div id="header">
     <?php if(isset($_SESSION['auth'])):?>
-        <a href="account.php" class="nom"><?= $_SESSION['auth']->prenom; ?></a> | <a href="modif.php" class="nom">Paramètres</a>
+        <a href="account.php" class="nom"><?= $_SESSION['auth']->prenom; ?></a>
+        |
+        <a href="modif.php" class="nom">Paramètres</a>
+        |
+        <a href="upload.php" class="nom">Télécharger un fichier</a>
         |
         <a href="logout.php" class="boutonDeco">Se déconnecter</a>
 

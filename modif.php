@@ -2,24 +2,12 @@
     require_once 'Utile/db.php';
     require_once 'fonctions.php';
     logged_only();
+    $errors = array();
 
     //Mot de passe
-    if(!empty($_POST)){
+    if(!empty($_POST['pass'])){
         if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || ($_POST['pass'] != $_POST['passconfirm']) || preg_match('/[@#&é"(§è!çà)ë“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['pass'])){
-            ?>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-            <div class="connexionerror">
-                Votre mot de passe est inchangé<br>
-                Veillez à écrire des mots de passes identiques en respéctant les règles si vous souhaitez le modifier
-            </div>
-            </body>
-            </html>
-            <?php
+            $errors['pass'] = "mot de passe invalide, veillez à respecter les règles.";
         }
         else{
             $user_id = $_SESSION['auth']->id;
@@ -43,22 +31,9 @@
     }
 
     //Nom
-    if(!empty($_POST)){
+    if(!empty($_POST['nom'])){
         if(empty($_POST['nom']) || ($_POST['nom'] != $_POST['nomconfirm']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['nom'])){
-            ?>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-            <div class="connexionerror">
-                Votre nom est inchangé<br>
-                Veillez à écrire un nom indentique dans les deux champs si vous souhaitez le modifier
-            </div>
-            </body>
-            </html>
-            <?php
+            $errors['nom'] = "nouveau nom invalide, veillez à respecter les règles.";
         }
         else{
             $user_id = $_SESSION['auth']->id;
@@ -82,22 +57,9 @@
     }
 
     //Prénom
-    if(!empty($_POST)){
+    if(!empty($_POST['prenom'])){
         if(empty($_POST['prenom']) || ($_POST['prenom'] != $_POST['prenomconfirm']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['prenom'])){
-            ?>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-            <div class="connexionerror">
-                Votre nom est inchangé<br>
-                Veillez à écrire un nom indentique dans les deux champs si vous souhaitez le modifier
-            </div>
-            </body>
-            </html>
-            <?php
+            $errors['prenom'] = "nouveau prénom invalide, veillez à respecter les règles.";
         }
         else{
             $user_id = $_SESSION['auth']->id;
@@ -159,8 +121,19 @@
 
         <div id="actuel">
             <strong>Vos infos actuelles :</strong> <?= $_SESSION['auth']->prenom;?> <?= $_SESSION['auth']->nom;?>, <?= $_SESSION['auth']->mail;?>.<br>
-            (Vous devrez peut-être vous reconnectez pour effectuer les changements correctement)
+            (Vous devrez vous reconnectez pour effectuer les changements correctement)
         </div>
+
+        <?php if (!empty($errors)): ?>
+            <div class="alerterror">
+                <p>La modification ne s'est pas effectuée :</p>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
 
         <div id="connexion">
             <div id="title">

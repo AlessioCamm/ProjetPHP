@@ -60,7 +60,6 @@ if(!empty($_POST)){//Vérifier les champs
         </html>
         <?php
     }
-    //debug($errors);
 }
 
 ?>
