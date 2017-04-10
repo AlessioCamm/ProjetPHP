@@ -245,7 +245,7 @@ html, body {
     width: 15px;
     vertical-align: middle;
 }
-/*---------------Header---------------*/
+/*---------------HEADER---------------*/
 #header{
     margin: 0px auto 0px auto;
     background-color: #333333;
@@ -274,7 +274,7 @@ html, body {
     color: #0064f4;
 }
 
-/*---------------Footer---------------*/
+/*---------------FOOTER---------------*/
 #footer{
     margin: 10px auto 0px auto;
     background-color: #222222;
@@ -345,4 +345,35 @@ html, body {
 }
 .mailadmin{
     color: #00cf48;
+}
+
+/*--------------UPLOAD----------------*/
+#upload{
+    margin-top: 10px;
+    margin-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #696b73;/*323338*/
+    height: auto;
+    width: 70%;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 25px;
+}
+#titleupload hr{
+    width: 80%;
+}
+#formulaireUpload{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+    background-color: #696b73;/*323338*/
+    text-align: left;
+    font-size: 15px;
+    width: 75%;
+}
+#formulaireUpload strong{
+    font-size: 10px;
 }
