@@ -74,9 +74,7 @@ if(!empty($_POST)){//Vérifier les champs
 
     <body>
 
-    <div id="accueil">
-        Inscription
-    </div>
+
 
     <?php
         include 'Utile/header.php';

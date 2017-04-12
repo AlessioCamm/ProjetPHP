@@ -90,12 +90,10 @@
         <meta charset="UTF-8">
         <title>Paramètres</title>
         <link rel="stylesheet" href="style.css" />
+        <style>#param{color: #17e486}</style>
     </head>
 
     <body>
-        <div id="accueil">
-            Paramètres
-        </div>
 
         <?php
             include 'Utile/header.php';

@@ -50,9 +50,6 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
 
     <body>
 
-        <div id="accueil">
-            Projet PHP
-        </div>
 
         <?php
             include 'Utile/header.php';
