@@ -30,6 +30,33 @@
         }
     }
 
+    //Mail
+    if(!empty($_POST['mail'])){
+        if(empty($_POST['mail']) || ($_POST['mail'] != $_POST['mailconfirm']) || preg_match('/[#&"(§!çà)“‘{¶«¡Çø}°^¨ô$*€ùÙ%`£,?;:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['mail']) || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
+            $errors['mail'] = "nouvelle adresse mail invalide.";
+        }
+        else{
+            $user_id = $_SESSION['auth']->id;
+            $mail = ($_POST['mail']);
+            $pdo->prepare('UPDATE utilisateurs SET mail = ? WHERE id = ?')->execute([$mail, $user_id]);
+            ?>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="style.css" />
+            </head>
+            <body>
+            <div class="connexionok">
+                Votre adresse mail a bien été mise à jour<br>
+                (déconnectez-vous puis reconnectez-vous avec votre nouvelle adresse afin que celle-ci prenne effet)
+            </div>
+            </body>
+            </html>
+            <?php
+
+        }
+    }
+
     //Nom
     if(!empty($_POST['nom'])){
         if(empty($_POST['nom']) || ($_POST['nom'] != $_POST['nomconfirm']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['nom'])){
@@ -150,6 +177,15 @@
             <div id="formulaireCo">
                 <form method="post" action="">
                     <br>
+                    <input class="entree" type="email" name="mail" placeholder="Entrez votre nouveau mail"><br>
+                    <input class="entree" type="email" name="mailconfirm" placeholder="Confirmez votre nouveau mail"><br>
+                    <button type="submit" class="buttonCoIndex">Changer d'adresse mail</button>
+                </form>
+                Veillez à avoir une adresse mail conforme (sans caractères spéciaux).
+            </div>
+            <div id="formulaireCo">
+                <form method="post" action="">
+                    <br>
                     <input class="entree" type="text" name="nom" placeholder="Entrez votre nouveau nom"><br>
                     <input class="entree" type="text" name="nomconfirm" placeholder="Confirmez votre nouveau nom"><br>
                     <button type="submit" class="buttonCoIndex">Changer de nom</button>
@@ -165,38 +201,7 @@
                 </form>
                 Veillez à avoir un prénom sans caractères spéciaux.
             </div>
-
         </div>
-
-        <!--Partie Admin-->
-        <?php if($_SESSION['auth']->id == '19'){
-            $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
-            $reponse = $bdd->query('SELECT * FROM utilisateurs');
-            ?>
-        <div id="admin">
-            <div id="title">
-                Infos des utilisateurs
-                <hr>
-            </div>
-            <div id="adminIn">
-            <?php
-            while($donnees = $reponse->fetch()){?>
-                <p class="adminP">
-                    <strong class="nomprenomadmin"><?php echo $donnees['prenom']; ?> <?php echo $donnees['nom']; ?></strong>
-                     -
-                    <strong class="idadmin">ID n°<?php echo $donnees['id']; ?></strong>
-                    -
-                    <strong class="mailadmin">Mail : <?php echo $donnees['mail']; ?></strong><br>
-                </p>
-            <?php  }
-            $reponse->closeCursor();
-            ?>
-            </div>
-        </div>
-        <?php
-        }
-        ?>
-        <!--Fin partie Admin-->
 
     </body>
 </html>

@@ -1,3 +1,3 @@
 <div id="footer">
-    Projet de PHP réalisé par Alessio Cammarata - HEH Campus Technique
+    Projet réalisé dans le cadre du cours de PHP, par Alessio Cammarata - HEH Campus Technique
 </div>

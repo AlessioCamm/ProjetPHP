@@ -46,6 +46,10 @@ html, body {
     height: 300px;
     width: 300px;
 }
+.logo{
+    height: 15px;
+    width: 15px;
+}
 
 #connexion{
      margin-top: 10px;
@@ -86,6 +90,7 @@ html, body {
     font-size: 15px;
     width: 70%;
     border-radius: 10px;
+    box-shadow: 1px 1px 10px #000000;
 }
 .lienInd{
     text-decoration: none;
@@ -105,6 +110,7 @@ html, body {
     border-top-style: none;
     border-bottom-color: #2fc190;
     background-color: #2ea070;
+    box-shadow: 1px 1px 5px #000;
 }
 .boutonInsReg{
     margin-top: 7px;
@@ -115,6 +121,7 @@ html, body {
     border-top-style: none;
     border-bottom-color: #00b8e5;
     background-color: #0097bd;
+    box-shadow: 1px 1px 5px #000;
 }
 
 .alerterror{
@@ -227,9 +234,11 @@ html, body {
     background-color: #4f4f4f;
     color: #f8ecff;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 #liste div:hover{
     background-color: #5a5a5a;
+    box-shadow: 1px 1px 7px #000;
 }
 #liste div hr{
     border:0;
@@ -249,7 +258,7 @@ html, body {
     text-decoration: underline;
 }
 .filecom{
-    color: #00afff;
+    color: #FFFFFF;
     border-radius: 15px;
     padding-right: 5px;
     padding-left: 5px;
@@ -295,6 +304,7 @@ html, body {
     padding-right: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
+    box-shadow: 1px 1px 12px #000;
 }
 .boutonDeco{
     text-decoration: none;
@@ -313,6 +323,9 @@ html, body {
     color: #13b598;
 }
 #param:hover{
+    color: #13b598;
+}
+#ndu:hover{
     color: #13b598;
 }
 #fileup:hover{
@@ -431,9 +444,10 @@ html, body {
     border-radius: 15px;
     background-color: #0056a8;
     padding: 7px;
+    box-shadow: 1px 1px 12px #000;
 }
 .uploadok{
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 10px 0px;
     background-color: #00cf48;
     text-align: center;
     font-size: 15px;
@@ -449,4 +463,70 @@ html, body {
     width: 100%;
     height: auto;
     color: #FFFFFF;
+}
+
+/*--------MessengerAffiche-----------*/
+#messFond{
+    background-color: #323338;
+    color: #FFFFFF;
+    width: 80%;
+    margin: 15px auto 0px auto;
+    border-radius: 15px;
+    height: auto;
+}
+#messTitre{
+    background-color: #323338;
+    color: #FFFFFF;
+    width: 100%;
+    margin: 15px auto 0px auto;
+    border-radius: 15px;
+    font-size: 21px;
+    height: auto;
+    text-align: center;
+}
+#messTitre hr{
+    width: 90%;
+}
+#mess{
+    background-color: #323338;
+    color: #FFFFFF;
+    width: 90%;
+    margin: 0px auto 0px auto;
+    border-radius: 15px;
+    height: auto;
+    text-align: center;
+    font-size: 16px;
+}
+#mess div{
+    background-color: #323338;
+    color: #f8ecff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+#mess div:hover{
+    background-color: #4f4f4f;
+    box-shadow: 1px 1px 7px #000;
+}
+#mess div hr{
+    border:0;
+}
+.messuser{
+    color: #0097e7;
+}
+.messdate{
+    color: #12af94;
+}
+.messlien{
+    text-decoration: none;
+    color: #007ec8;
+    font-size: 22px;
+}
+.messlien:hover{
+    text-decoration: underline;
+}
+.messcom{
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
 }

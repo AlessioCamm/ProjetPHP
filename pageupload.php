@@ -18,10 +18,10 @@ logged_only();
 
         if(in_array($file_extension, $extensions_autorisees)){
             if($file_taille < 4000000){
-                if(!preg_match('/[@#&"(§!çà)“{¶«¡Çø}_°^¨ô$*€ùÙ%£=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å”„Ÿ-]/', $_POST['commentaire'])) {
+                if(!preg_match('/[@#&"(§!çà)“{¶«¡Çø}_°|¨ô$*€ùÙ%£=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å”„Ÿ-]/', $_POST['commentaire'])) {
                     if (move_uploaded_file($file_tmp_name, $file_dest)) {
-                        $req = $pdo->prepare('INSERT INTO fichiers SET nom_user = ?, nomfichier = ?, extension = ?, taille = ?, dateT = ?, url = ?, commentaire = ?, categorie = ?');
-                        $req->execute(array($_SESSION['auth']->prenom, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
+                        $req = $pdo->prepare('INSERT INTO fichiers SET id_user = ?, prenom_user = ?, nom_user = ?, nomfichier = ?, extension = ?, taille = ?, dateT = ?, url = ?, commentaire = ?, categorie = ?');
+                        $req->execute(array($_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
 
                         ?>
                         <div class="uploadok">
@@ -118,7 +118,7 @@ logged_only();
                     Séléctionnez la catégorie de votre fichier ('Informatique' par défaut) :<br>
                     <select name="choixCat">
                         <option value="Informatique" selected="selected">Informatique</option>
-                        <option value="Developpement">Développement</option>
+                        <option value="Développement">Développement</option>
                         <option value="Electronique">Electronique</option>
                         <option value="Graphisme">Graphisme</option>s
                     </select><br>
