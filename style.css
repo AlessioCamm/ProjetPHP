@@ -213,7 +213,7 @@ html, body {
     width: 100%;
     margin: 15px auto 0px auto;
     border-radius: 15px;
-    font-size: 21px;
+    font-size: 20px;
     height: auto;
     text-align: center;
 }
@@ -231,14 +231,16 @@ html, body {
     font-size: 16px;
 }
 #liste div{
-    background-color: #4f4f4f;
+    background-color: #393a3f;
     color: #f8ecff;
+    margin-top: 2px;
     margin-bottom: 10px;
     border-radius: 5px;
+    padding-bottom: 5px;
 }
 #liste div:hover{
-    background-color: #5a5a5a;
-    box-shadow: 1px 1px 7px #000;
+    background-color: #4c4c4c;
+    /*box-shadow: 1px 1px 7px #000;*/
 }
 #liste div hr{
     border:0;
@@ -265,6 +267,15 @@ html, body {
 }
 .filecom:hover{
     background-color: #1f1d1e;
+}
+#liste div div{
+    background-color: #4c4c4c;
+    width: 80%;
+    margin: 5px auto 0px auto;
+}
+#liste div div:hover{
+    background-color: #595959;
+    box-shadow: 1px 1px 7px #000;
 }
 /*------------BarreMenu---------------*/
 .barrenom{
@@ -309,7 +320,7 @@ html, body {
 .boutonDeco{
     text-decoration: none;
     color: #ffffff;
-    padding-right: 10%;
+    padding-right: 7%;
 }
 .boutonDeco:hover{
     color: #DD910A;
@@ -325,9 +336,6 @@ html, body {
 #param:hover{
     color: #13b598;
 }
-#ndu:hover{
-    color: #13b598;
-}
 #fileup:hover{
     color: #13b598;
 }
@@ -338,6 +346,14 @@ html, body {
 .boutonIns:hover{
     color: #DD910A;
 }
+.help{
+    height: 15px;
+    width: 15px;
+}
+.help:hover{
+    background-color: #13b598;
+    border-radius: 15px;
+ }
 
 /*---------------FOOTER---------------*/
 #footer{

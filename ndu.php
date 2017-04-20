@@ -36,7 +36,7 @@
         <meta charset="UTF-8">
         <title>Nouvelles des utilisateurs</title>
         <link rel="stylesheet" href="style.css" />
-        <style>#ndu{color: #17e486}</style>
+        <style>.help{background-color: #17d779; border-radius: 15px;}</style>
     </head>
 
     <body>
@@ -64,7 +64,7 @@
         $reponse = $bdd->query('SELECT * FROM utilisateurs');
     ?>
     <div id="divtitre" class="inscription">
-        <?= $_SESSION['auth']->prenom; ?>, vous avez un souci ?<br>
+        Quelque chose à signaler, <?= $_SESSION['auth']->prenom; ?> ?<br>
         Faites donc un petit message à l'administrateur !<br>
     </div>
 

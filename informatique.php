@@ -39,8 +39,10 @@ logged_only();
                         <strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>
-                        <a class="filelien" href="<?php $donnees['url']; ?>"><?php echo $donnees['nomfichier']; ?></a>
-                        - <?php echo $donnees['taille']; ?> octets - <?php echo $donnees['categorie']; ?>
+                        <div class="divfile">
+                            <a class="filelien" href="<?php echo $donnees['url']; ?>"><?php echo $donnees['nomfichier']; ?></a><br>
+                            <?php echo ($donnees['taille'] / 1000000); ?> Mo - <?php echo $donnees['categorie']; ?>
+                        </div>
                     </div>
                 <?php  }
                 $reponse->closeCursor();

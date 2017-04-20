@@ -14,7 +14,7 @@
         |
         <a href="modif.php" class="nom" id="param">Paramètres</a>
         |
-        <a href="ndu.php" class="nom" id="ndu">NDU</a>
+         <a href="ndu.php" class="nom" id="ndu"><img class="help" src="Images/help.png" title="Un souci ?"></a>
         |
         <a href="logout.php" class="boutonDeco">Se déconnecter</a>
 

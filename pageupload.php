@@ -10,14 +10,14 @@ logged_only();
 
         $file_name = $_FILES['file']['name'];
         $file_extension = strrchr($file_name, ".");
-        $extensions_autorisees = array('.docx', '.DOCX', '.dotx', '.DOTX', '.doc', '.DOC', '.pdf', '.PDF', '.txt', '.TXT', '.html', '.HTML', '.css', '.CSS', '.js', '.JS', '.afdesign', '.AFDESIGN', '.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG', '.gif', '.GIF');
+        $extensions_autorisees = array('.docx', '.DOCX', '.dotx', '.DOTX', '.doc', '.DOC', '.pdf', '.PDF', '.txt', '.TXT', '.html', '.HTML', '.css', '.CSS', '.js', '.JS', '.afdesign', '.AFDESIGN', '.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG', '.gif', '.GIF', '.zip', '.ZIP', '.rar', '.RAR');
         $file_taille = $_FILES['file']['size'];
         $file_tmp_name = $_FILES['file']['tmp_name'];
         $file_dest = 'Uploads/'.$file_name;
 
 
         if(in_array($file_extension, $extensions_autorisees)){
-            if($file_taille < 4000000){
+            if($file_taille < 10000000){
                 if(!preg_match('/[@#&"(§!çà)“{¶«¡Çø}_°|¨ô$*€ùÙ%£=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å”„Ÿ-]/', $_POST['commentaire'])) {
                     if (move_uploaded_file($file_tmp_name, $file_dest)) {
                         $req = $pdo->prepare('INSERT INTO fichiers SET id_user = ?, prenom_user = ?, nom_user = ?, nomfichier = ?, extension = ?, taille = ?, dateT = ?, url = ?, commentaire = ?, categorie = ?');
@@ -106,8 +106,9 @@ logged_only();
             <div id="formulaireUpload">
                 <strong>ATTENTION : veillez à télécharger des fichiers utiles et tolérés. Ne téléchergez pas de fichiers idiots ou inutiles.<br>
                 Peu importe la catégorie dans laquelle vous voulez mettre votre fichier, faites attention au type de fichier :<br>
-                Word (.docx, .dotx), PDF (.pdf), texte (.txt), développement Web (.html, .css, .js), Affinity Designer (.afdesign), image (.png, .jpg, .jpeg, .gif)<br>
-                Taille max d'un fichier : 4 Mo.<br>
+                Word (.docx, .dotx), PDF (.pdf), texte (.txt), développement Web (.html, .css, .js), Affinity Designer (.afdesign), image (.png, .jpg, .jpeg, .gif), fichier compressé ( .zip, .rar).<br>
+                Taille max d'un fichier : 10 Mo.<br>
+                Vous pouvez toujours compressé vos fichiers avant de les télécharger sur le site si leur taille est nativement de plus de 10 Mo.<br>
                 <br>
                 Votre fichier sera supprimé s'il est corrompu, défaillant, ou qu'il n'a aucun rapport avec la catégorie séléctionnée.</strong><br>
                 <hr>
