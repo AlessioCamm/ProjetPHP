@@ -83,7 +83,7 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     background-color: #2fc190;
     color: #000011;
     text-align: center;
@@ -277,6 +277,34 @@ html, body {
     background-color: #595959;
     box-shadow: 1px 1px 7px #000;
 }
+.imagefichier{
+    height: 40px;
+    width: 40px;
+    margin: 5px 0px 0px 5px;
+    float: left;
+}
+.profil{
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin: 5px 0px 5px 5px;
+    border-radius: 5px;
+}
+.profilicon{
+    height: 20px;
+    width: 20px;
+
+    margin: 0px 0px 0px 5px;
+    border-radius: 5px;
+}
+.profilinfo{
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin: 0px 0px 5px 5px;
+    border-radius: 5px;
+}
+
 /*------------BarreMenu---------------*/
 .barrenom{
     margin: 0px auto 0px auto;
@@ -545,4 +573,54 @@ html, body {
     border-radius: 15px;
     padding-right: 5px;
     padding-left: 5px;
+}
+
+
+
+/*-----------------------------------*/
+/*-----------------------------------*/
+/*----------Responsive 955px---------*/
+@media screen and (max-width: 955px){
+    /*------------------------*/
+    .barrenom{
+        width:100%;
+        border-radius: 0px;
+    }
+    #listeFond{
+        width: 99%;
+    }
+    #liste{
+        width: 99%;
+    }
+    #liste div div{
+        width: 90%;
+    }
+}
+
+/*-----------------------------------*/
+/*-----------------------------------*/
+/*----------Responsive 650px---------*/
+@media screen and (max-width: 650px){
+    /*------------------------*/
+    #header{
+        margin: 0px auto 0px auto;
+        background-color: #0056a8;
+        text-align: right;
+        font-size: 13px;
+        height: auto;
+        width: 100%;
+        height: auto;
+        padding-right: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        box-shadow: 1px 1px 12px #000;
+    }
+    .boutonDeco{
+        text-decoration: none;
+        color: #ffffff;
+    }
+    .help{
+        height: 12px;
+        width: 12px;
+    }
 }

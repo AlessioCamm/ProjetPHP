@@ -36,11 +36,16 @@
 
                 while($donnees = $reponse->fetch()){?>
                     <div>
+                        <?php
+                            if($donnees['extension'] == ".pdf" || $donnees['extension'] == ".PDF"){
+                                $image = "ExtImage/pdf.png";
+                            }
+                        ?>
                         <strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>
                         <div class="divfile">
-                            <a class="filelien" href="<?php echo $donnees['url']; ?>"><?php echo $donnees['nomfichier']; ?></a><br>
+                            <img class="imagefichier" src="<?php echo $image ?>" alt="Image fichier"><a class="filelien" href="<?php echo $donnees['url']; ?>"><?php echo $donnees['nomfichier']; ?></a><br>
                             <?php echo ($donnees['taille'] / 1000000); ?> Mo - <?php echo $donnees['categorie']; ?>
                         </div>
                     </div>

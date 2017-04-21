@@ -145,6 +145,7 @@
         </div>
 
         <div id="actuel">
+            <img class="profilinfo" src="<?php echo $_SESSION['auth']->photoprofil;; ?>" alt="Image profil">
             <strong>Vos infos actuelles :</strong> <?= $_SESSION['auth']->prenom;?> <?= $_SESSION['auth']->nom;?>, <?= $_SESSION['auth']->mail;?>.<br>
             (Vous devrez vous reconnectez pour effectuer les changements correctement)
         </div>

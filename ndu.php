@@ -112,6 +112,7 @@
                 $reponse = $bdd->query('SELECT * FROM messenger ORDER BY id_message DESC');
                 while($donnees = $reponse->fetch()){?>
                     <div>
+                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil">
                         <strong class="messuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateMessage']; ?></strong><br>
                         <hr>
                         <em class="messcom"><strong><?php echo $donnees['message']; ?></strong></em><br>
@@ -134,6 +135,8 @@
                 $reponse = $bdd->query('SELECT * FROM utilisateurs');
                 while($donnees = $reponse->fetch()){?>
                     <p class="adminP">
+                        <img class="profilicon" src="<?php echo $donnees['photoprofil']; ?>" alt="Image profil">
+                        -
                         <strong class="nomprenomadmin"><?php echo $donnees['prenom']; ?> <?php echo $donnees['nom']; ?></strong>
                         -
                         <strong class="idadmin">ID n°<?php echo $donnees['id']; ?></strong>
