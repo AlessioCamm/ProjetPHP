@@ -18,7 +18,7 @@ logged_only();
 
         if(in_array($file_extension, $extensions_autorisees)){
             if($file_taille < 25000000){
-                if(!preg_match('/[@#&"(§!çà)“{¶«¡Çø}_°|¨ô$*€ùÙ%£=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å”„Ÿ-]/', $_POST['commentaire'])) {
+                if(!preg_match('/[@#&"§!ç“{¶«¡Çø}_°|$*€%£+∞…÷≠±\•¿#‰¥ÔØÛ»å”„Ÿ-]/', $_POST['commentaire'])) {
                     if (move_uploaded_file($file_tmp_name, $file_dest)) {
                         $req = $pdo->prepare('INSERT INTO fichiers SET id_user = ?, prenom_user = ?, nom_user = ?, photo_user = ?, nomfichier = ?, extension = ?, taille = ?, dateT = ?, url = ?, commentaire = ?, categorie = ?');
                         $req->execute(array($_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
@@ -29,7 +29,8 @@ logged_only();
                             Votre fichier a été téléchargé avec succès.
                         </div>
                         <?php
-                    } else {
+                    }
+                    else{
                         ?>
                         <div class="uploadnope">
                             Un problème innatendu est survenu.
@@ -41,7 +42,7 @@ logged_only();
                     ?>
                     <div class="uploadnope">
                         Veuillez n'écrire que des caractères alphanumériques en commentaire<br>
-                        (ainsi que le point, la virgule, le point-virgule, l'apostrophe et le point d'interrogation).
+                        (ainsi que la ponctuation "normale").
                     </div>
                     <?php
                 }

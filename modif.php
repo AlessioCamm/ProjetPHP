@@ -35,26 +35,35 @@
         if(empty($_POST['mail']) || ($_POST['mail'] != $_POST['mailconfirm']) || preg_match('/[#&"(§!çà)“‘{¶«¡Çø}°^¨ô$*€ùÙ%`£,?;:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['mail']) || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
             $errors['mail'] = "nouvelle adresse mail invalide.";
         }
-        else{
-            $user_id = $_SESSION['auth']->id;
-            $mail = ($_POST['mail']);
-            $pdo->prepare('UPDATE utilisateurs SET mail = ? WHERE id = ?')->execute([$mail, $user_id]);
-            ?>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-            <div class="connexionok">
-                Votre adresse mail a bien été mise à jour<br>
-                (déconnectez-vous puis reconnectez-vous avec votre nouvelle adresse afin que celle-ci prenne effet)
-            </div>
-            </body>
-            </html>
-            <?php
+        if($_POST['mail'] == $_POST['mailconfirm']){
+            $req = $pdo->prepare('SELECT id FROM utilisateurs WHERE mail = ?');
+            $req->execute([$_POST['mail']]);
+            $answer = $req->fetch();
+            if($answer){
+                $errors['mail'] = 'Cette adresse mail est déjà utilisée';
+            }
+            else{
+                $user_id = $_SESSION['auth']->id;
+                $mail = ($_POST['mail']);
+                $pdo->prepare('UPDATE utilisateurs SET mail = ? WHERE id = ?')->execute([$mail, $user_id]);
+                ?>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <link rel="stylesheet" href="style.css" />
+                </head>
+                <body>
+                <div class="connexionok">
+                    Votre adresse mail a bien été mise à jour<br>
+                    (déconnectez-vous puis reconnectez-vous avec votre nouvelle adresse afin que celle-ci prenne effet)
+                </div>
+                </body>
+                </html>
+                <?php
 
+            }
         }
+
     }
 
     //Nom
@@ -108,6 +117,52 @@
 
         }
     }
+
+    //Photo de profil
+    if(!empty($_FILES)){
+        $file_name = $_FILES['filePhotoProfil']['name'];
+        $file_extension = strrchr($file_name, ".");
+        $extensions_autorisees = array('.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG');
+        $file_taille = $_FILES['filePhotoProfil']['size'];
+        $file_tmp_name = $_FILES['filePhotoProfil']['tmp_name'];
+        $file_dest = 'ProfilPic/'.$file_name;
+
+        if(in_array($file_extension, $extensions_autorisees)){
+            if($file_taille < 2000000){
+                if(move_uploaded_file($file_tmp_name, $file_dest)){
+                    $user_id = $_SESSION['auth']->id;
+                    $req = $pdo->prepare('UPDATE utilisateurs SET photoprofil = ? WHERE id = ?')->execute([$file_dest, $user_id]);
+                    ?>
+                    <div class="uploadok">
+                        Et voilà ! Votre photo de profil est mise à jour.<br>
+                        Déconnectez/reconnectez-vous afin que les modifications soient sauvegardées.
+                    </div>
+                    <?php
+                }
+                else {
+                    ?>
+                    <div class="uploadnope">
+                        Un problème innatendu est survenu.
+                    </div>
+                    <?php
+                }
+            }
+            else{
+                ?>
+                <div class="uploadnope">
+                    Votre photo est trop volumineuse.
+                </div>
+                <?php
+            }
+        }
+        else{
+            ?>
+            <div class="uploadnope">
+                L'extension de votre fichier est incorrecte.
+            </div>
+            <?php
+        }
+    }
 ?>
 
 
@@ -118,6 +173,19 @@
         <title>Paramètres</title>
         <link rel="stylesheet" href="style.css" />
         <style>#param{color: #17e486}</style>
+        <script>
+            function deleteFunction(){
+                var reponse = confirm("Êtes-vous sûr(e) de vouloir supprimer votre compte ?\n" +
+                    "Vous allez être deconnecté(e) du site et redirigé(e) sur une autre page.");
+
+                if(reponse == true){
+                    window.location="delete.php";
+                }
+                else{
+
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -163,7 +231,7 @@
 
         <div id="connexion">
             <div id="title">
-                Modifiez votre mot de passe
+                Modifiez vos informations
                 <hr>
             </div>
             <div id="formulaireCo">
@@ -202,6 +270,26 @@
                 </form>
                 Veillez à avoir un prénom sans caractères spéciaux.
             </div>
+            <div id="formulaireCo">
+                <form method="post" action="" enctype="multipart/form-data">
+                    <br>
+                    Séléctionnez une nouvelle photo de profil :<br>
+                    <input type="file" name="filePhotoProfil"><br>
+                    <button type="submit" class="buttonCoIndex">Changer de photo de profil</button>
+                </form>
+                Veillez à sélectionner une photo de moins de 2 Mo.<br>
+                L'image sera affichée en petite taille, prenez donc une photo adaptée.
+            </div>
+
+            <?php if($_SESSION['auth']->id != '19'){
+                ?>
+                <br>
+                <button type="submit" class="buttonDelete" onclick="deleteFunction()">
+                    Supprimer votre compte
+                </button>
+                <?php
+            }
+            ?>
         </div>
 
     </body>

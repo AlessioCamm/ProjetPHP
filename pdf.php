@@ -41,7 +41,7 @@
                                 $image = "ExtImage/pdf.png";
                             }
                         ?>
-                        <strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
+                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>
                         <div class="divfile">

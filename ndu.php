@@ -136,12 +136,11 @@
                 while($donnees = $reponse->fetch()){?>
                     <p class="adminP">
                         <img class="profilicon" src="<?php echo $donnees['photoprofil']; ?>" alt="Image profil">
-                        -
                         <strong class="nomprenomadmin"><?php echo $donnees['prenom']; ?> <?php echo $donnees['nom']; ?></strong>
                         -
                         <strong class="idadmin">ID n°<?php echo $donnees['id']; ?></strong>
                         -
-                        <strong class="mailadmin">Mail : <?php echo $donnees['mail']; ?></strong><br>
+                        <strong class="mailadmin"><?php echo $donnees['mail']; ?></strong><br>
                     </p>
                 <?php  }
                 $reponse->closeCursor();

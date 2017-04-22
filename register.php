@@ -24,7 +24,8 @@ if(!empty($_POST)){//Vérifier les champs
 
     if(empty($_POST['mail']) || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
         $errors['mail'] = "Votre mail n'est pas valide.";
-    }else{
+    }
+    else{
         $req = $pdo->prepare('SELECT id FROM utilisateurs WHERE mail = ?');
         $req->execute([$_POST['mail']]);
         $answer = $req->fetch();

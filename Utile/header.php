@@ -8,7 +8,8 @@
 
 <div id="header">
     <?php if(isset($_SESSION['auth'])):?>
-        <a href="account.php" class="nom" id="sess"><?= $_SESSION['auth']->prenom; ?></a>
+        <a href="account.php" class="nom" id="sess"><img class="profilheader" src="<?php echo $_SESSION['auth']->photoprofil;; ?>" alt="Image profil">
+        <?= $_SESSION['auth']->prenom; ?></a>
         |
         <a href="pageupload.php" class="nom" id="fileup">Télécharger un fichier</a>
         |
