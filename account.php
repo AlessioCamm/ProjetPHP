@@ -92,5 +92,9 @@
             <br>
         </div>
 
+        <?php
+            include 'Utile/footer.php';
+        ?>
+
     </body>
 </html>

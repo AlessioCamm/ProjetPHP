@@ -285,7 +285,7 @@
                 ?>
                 <br>
                 <button type="submit" class="buttonDelete" onclick="deleteFunction()">
-                    Supprimer votre compte
+                    Supprimer mon compte
                 </button>
                 <?php
             }
