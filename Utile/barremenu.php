@@ -7,9 +7,9 @@
 
     <a href="graph.php" class="BarreMenuGraph"><img src="Utile/ImagesHeader/IconGraph.png" alt="" class="ImageMenu"> Graphisme</a>
 
-    <a href="pdf.php" class="BarreMenuPDF"><img src="Utile/ImagesHeader/IconPDF.png" alt="" class="ImageMenu"> PDF</a>
+    <a href="pdf.php" class="BarreMenuPDF"><img src="Utile/ImagesHeader/pdf.png" alt="" class="ImageMenu"> PDF</a>
 
-    <a href="word.php" class="BarreMenuWord"><img src="Utile/ImagesHeader/IconWord.png" alt="" class="ImageMenu"> Word</a>
+    <a href="word.php" class="BarreMenuWord"><img src="Utile/ImagesHeader/word.png" alt="" class="ImageMenu"> Word</a>
     -----
     <a href="account.php" class="BarreMenuAcc">Accueil</a>
 </div>

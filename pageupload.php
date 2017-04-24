@@ -25,7 +25,7 @@ logged_only();
 
                         ?>
                         <div class="uploadok">
-                            ...ET LE FICHIER FUT !<br>
+                            Et voilà !<br>
                             Votre fichier a été téléchargé avec succès.
                         </div>
                         <?php
@@ -71,7 +71,7 @@ logged_only();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Télécharger</title>
+        <title>Vos fichiers</title>
         <link rel="stylesheet" href="style.css" />
         <style>#fileup{color: #17e486}</style>
     </head>
@@ -96,7 +96,8 @@ logged_only();
         </div>
 
         <div id="divtitre" class="inscription">
-            C'est ici que vous pourrez télécharger un fichier sur le site.<br>
+            C'est ici que vous pourrez télécharger un fichier sur le site,<br>
+            et également voir ce que vous avez déjà téléchargé.<br>
         </div>
 
         <div id="upload">
@@ -107,7 +108,7 @@ logged_only();
             <div id="formulaireUpload">
                 <strong>ATTENTION : veillez à télécharger des fichiers utiles et tolérés. Ne téléchergez pas de fichiers idiots ou inutiles.<br>
                 Peu importe la catégorie dans laquelle vous voulez mettre votre fichier, faites attention au type de fichier :<br>
-                Word (.docx, .dotx), PDF (.pdf), texte (.txt), développement Web (.html, .css, .js), Affinity Designer (.afdesign), image (.png, .jpg, .jpeg, .gif), fichier compressé ( .zip, .rar).<br>
+                Word (.docx, .dotx), Power Point (.ppt, .pptx), PDF (.pdf), texte (.txt), développement Web (.html, .css, .js), Affinity Designer (.afdesign), image (.png, .jpg, .jpeg, .gif), fichier compressé ( .zip, .rar).<br>
                 Taille max d'un fichier : 25 Mo.<br>
                 Vous pouvez toujours compressé vos fichiers avant de les télécharger sur le site si leur taille est nativement de plus de 25 Mo.<br>
                 <br>
@@ -131,8 +132,76 @@ logged_only();
 
                     <input type="submit" value="Télécharger le fichier" name="submit">
                 </form>
-
             </div>
+        </div>
+
+        <div id="fichierListe">
+            <div id="fichierListeTitre">
+                ...et le fichier fut !
+                <hr>
+            </div>
+            <div id="fichierListeListe">
+                <?php
+                $test = $_SESSION['auth']->id;
+                $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
+                $reponse = $bdd->query('SELECT * FROM fichiers WHERE id_user='.$test.' ORDER BY id_fichier DESC');
+
+                while($donnees = $reponse->fetch()){?>
+                    <div>
+                        <?php
+                        if($donnees['extension'] == ".docx" || $donnees['extension'] == ".DOCX" || $donnees['extension'] == ".dotx" || $donnees['extension'] == ".DOTX" || $donnees['extension'] == ".doc" || $donnees['extension'] == ".DOC"){
+                            $image = "ExtImage/word.png";
+                        }
+                        if($donnees['extension'] == ".pdf" || $donnees['extension'] == ".PDF"){
+                            $image = "ExtImage/pdf.png";
+                        }
+                        if($donnees['extension'] == ".png" || $donnees['extension'] == ".PNG" || $donnees['extension'] == ".jpg" || $donnees['extension'] == ".JPG" || $donnees['extension'] == ".jpeg" || $donnees['extension'] == ".JPEG"){
+                            $image = "ExtImage/image.png";
+                        }
+                        if($donnees['extension'] == ".gif" || $donnees['extension'] == ".GIF"){
+                            $image = "ExtImage/gif.png";
+                        }
+                        if($donnees['extension'] == ".rar" || $donnees['extension'] == ".RAR"){
+                            $image = "ExtImage/rar.png";
+                        }
+                        if($donnees['extension'] == ".zip" || $donnees['extension'] == ".ZIP"){
+                            $image = "ExtImage/zip.png";
+                        }
+                        if($donnees['extension'] == ".txt" || $donnees['extension'] == ".TXT"){
+                            $image = "ExtImage/text.png";
+                        }
+                        if($donnees['extension'] == ".html" || $donnees['extension'] == ".HTML"){
+                            $image = "ExtImage/html.png";
+                        }
+                        if($donnees['extension'] == ".css" || $donnees['extension'] == ".css"){
+                            $image = "ExtImage/css.png";
+                        }
+                        if($donnees['extension'] == ".js" || $donnees['extension'] == ".JS"){
+                            $image = "ExtImage/javascript.png";
+                        }
+                        if($donnees['extension'] == ".afdesign" || $donnees['extension'] == ".AFDESIGN"){
+                            $image = "ExtImage/afdesign.png";
+                        }
+                        if($donnees['extension'] == ".txt" || $donnees['extension'] == ".TXT"){
+                            $image = "ExtImage/text.png";
+                        }
+                        if($donnees['extension'] == ".ppt" || $donnees['extension'] == ".PPT" || $donnees['extension'] == ".pptx" || $donnees['extension'] == ".PPTX"){
+                            $image = "ExtImage/ppt.png";
+                        }
+                        ?>
+                        <img class="profilListe" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
+                        <hr>
+                        <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>
+                        <div class="divfile">
+                            <img class="imagefichierListe" src="<?php echo $image ?>" alt="Image fichier"><a class="filelienListe" href="<?php echo $donnees['url']; ?>"><?php echo $donnees['nomfichier']; ?></a><br>
+                            <?php echo ($donnees['taille'] / 1000000); ?> Mo - <?php echo $donnees['categorie']; ?>
+                        </div>
+                    </div>
+                <?php  }
+                $reponse->closeCursor();
+                ?>
+            </div>
+            <br>
         </div>
 
     

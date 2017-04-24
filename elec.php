@@ -25,11 +25,10 @@
         ?>
 
         <div id="listeFond">
-            <div id="listeTitre">
-                Fichiers pour l'électronique
-                <hr>
-            </div>
             <div id="liste">
+                <form class="uploadFileDiv">
+                    <a href="pageupload.php">Télécharger un fichier</a>
+                </form>
                 <?php
                 $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
                 $reponse = $bdd->query('SELECT * FROM fichiers WHERE categorie="Electronique" ORDER BY id_fichier DESC');

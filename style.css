@@ -234,6 +234,21 @@ html, body {
     background-color: #9d1a01;
     box-shadow: 1px 1px 5px #000;
 }
+.uploadFileDiv{
+    background-color: #13a689;
+    border-radius: 25px;
+    margin: 0px 0px 10px 0px;
+}
+.uploadFileDiv:hover{
+    background-color: #3b3c47;
+}
+.uploadFileDiv a{
+    text-decoration: none;
+    color: white;
+}
+.uploadFileDiv a:hover{
+    color: #13a689;
+}
 
 /*------------FileAffiche-----------*/
 #listeFond{
@@ -520,7 +535,7 @@ html, body {
 
 /*--------------UPLOAD----------------*/
 #upload{
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom:20px;
     margin-left: auto;
     margin-right: auto;
@@ -569,6 +584,99 @@ html, body {
     width: 100%;
     height: auto;
     color: #FFFFFF;
+}
+
+/*-------AfficheFichiers-----------*/
+#fichierListe{
+    background-color: #323338;
+    color: #FFFFFF;
+    width: 80%;
+    margin: 35px auto 0px auto;
+    border-radius: 15px;
+    height: auto;
+}
+#fichierListeTitre{
+    background-color: #323338;
+    color: #FFFFFF;
+    width: 100%;
+    margin: 15px auto 0px auto;
+    border-radius: 15px;
+    font-size: 25px;
+    height: auto;
+    text-align: center;
+}
+#fichierListeTitre hr{
+    width: 80%;
+}
+#fichierListeListe{
+    background-color: #323338;
+    color: #FFFFFF;
+    width: 70%;
+    margin: 0px auto 0px auto;
+    border-radius: 15px;
+    height: auto;
+    text-align: center;
+    font-size: 13px;
+}
+#fichierListeListe div{
+    background-color: #303136;
+    color: #f8ecff;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+}
+#fichierListeListe div:hover{
+    background-color: #282934;
+}
+#fichierListeListe div hr{
+    border:0;
+}
+.fileuser{
+    color: #0097e7;
+}
+.filedate{
+    color: #12af94;
+}
+.filelienListe{
+    text-decoration: none;
+    color: #007ec8;
+    font-size: 15px;
+}
+.filelien:hover{
+    text-decoration: underline;
+}
+.filecom{
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.filecom:hover{
+    background-color: #1f1d1e;
+}
+#fichierListeListe div div{
+    background-color: #282934;
+    width: 80%;
+    margin: 5px auto 0px auto;
+}
+#fichierListeListe div div:hover{
+    background-color: #3b3c47;
+    box-shadow: 1px 1px 7px #000;
+}
+.imagefichierListe{
+    height: 25px;
+    width: 25px;
+    margin: 6px 0px 0px 5px;
+    float: left;
+}
+.profilListe{
+    height: 40px;
+    width: 40px;
+    float: left;
+    vertical-align: top;
+    margin: 5px 0px 0px 5px;
+    border-radius: 5px;
 }
 
 /*--------MessengerAffiche-----------*/
@@ -684,6 +792,46 @@ html, body {
         width: 45px;
         margin: 5px 0px 0px 5px;
     }
+    #fichierListe{
+        background-color: #323338;
+        color: #FFFFFF;
+        width: 100%;
+        margin: 35px auto 0px auto;
+        border-radius: 15px;
+        height: auto;
+    }
+    #fichierListeTitre{
+        background-color: #323338;
+        color: #FFFFFF;
+        width: 100%;
+        margin: 15px auto 0px auto;
+        border-radius: 15px;
+        font-size: 25px;
+        height: auto;
+        text-align: center;
+    }
+    #fichierListeTitre hr{
+        width: 80%;
+    }
+    #fichierListeListe{
+        background-color: #323338;
+        color: #FFFFFF;
+        width: 95%;
+        margin: 0px auto 0px auto;
+        border-radius: 15px;
+        height: auto;
+        text-align: center;
+        font-size: 13px;
+    }
+    #fichierListeListe div div{
+        background-color: #282934;
+        width: 85%;
+        margin: 5px auto 0px auto;
+    }
+    #upload{
+        margin-top: 50px;
+        width: 90%;
+    }
 }
 
 /*-----------------------------------*/
@@ -711,5 +859,9 @@ html, body {
     .help{
         height: 12px;
         width: 12px;
+    }
+    #upload{
+        margin-top: 50px;
+        width: 100%;
     }
 }
