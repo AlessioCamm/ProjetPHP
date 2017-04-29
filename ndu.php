@@ -9,8 +9,8 @@
         $message = $_POST['message'];
 
         if(!preg_match('/[#&§ç“{¶«¡Çø}_°|¨ô$*€ùÙ%£=+∞…÷≠±\•¿#‰¥ÔØÁÛ»”„Ÿ-]/', $_POST['message'])){
-            $req = $pdo->prepare('INSERT INTO messenger SET id_user = ?, prenom_user = ?, nom_user = ?, dateMessage = ?, message = ?');
-            $req->execute([$_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $dateM, $message]);
+            $req = $pdo->prepare('INSERT INTO messenger SET id_user = ?, prenom_user = ?, nom_user = ?, photo_user = ?, dateMessage = ?, message = ?');
+            $req->execute([$_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $dateM, $message]);
             ?>
             <div class="uploadok">
                 Et voilà !<br>

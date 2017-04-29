@@ -35,7 +35,7 @@ if(!empty($_POST)){//Vérifier les champs
     }
 
     if(empty($_POST['pass']) || mb_strlen($_POST['pass']) < 4 || $_POST['pass'] != $_POST['passconfirm'] || preg_match('/[@#&é"(§è!çà)ë“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['pass'])){
-        $errors['pass'] = "Vous devez entrer un mot de passe valide (minimum 4 caractères) qui soit identique dans les deux champs.";
+        $errors['pass'] = "Vous devez entrer un mot de passe valide (minimum 4 caractères) qui est identique dans les deux champs.";
     }
 
     //Inscrire un utilisateur
@@ -122,7 +122,7 @@ if(!empty($_POST)){//Vérifier les champs
             - respecter les autres utilisateurs.<br>
             <br>
             Si vous ne respectez pas une de ces règles, vous pourrez être banni.<br>
-            (Mais en vrai on est cool, ne vous en faites pas.)
+            (Mais si vous êtes cool, on le sera aussi !)
         </div>
     </div>
 

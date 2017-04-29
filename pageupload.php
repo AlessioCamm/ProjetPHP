@@ -15,10 +15,9 @@ logged_only();
         $file_tmp_name = $_FILES['file']['tmp_name'];
         $file_dest = 'Uploads/'.$file_name;
 
-
         if(in_array($file_extension, $extensions_autorisees)){
             if($file_taille < 25000000){
-                if(!preg_match('/[@#&"§!ç“{¶«¡Çø}_°|$*€%£+∞…÷≠±\•¿#‰¥ÔØÛ»å”„Ÿ-]/', $_POST['commentaire'])) {
+                if(!preg_match('/[]@#&§!ç¡Çø_°|$*€%£+∞÷≠±•¿#‰/', $_POST['commentaire'])) {
                     if (move_uploaded_file($file_tmp_name, $file_dest)) {
                         $req = $pdo->prepare('INSERT INTO fichiers SET id_user = ?, prenom_user = ?, nom_user = ?, photo_user = ?, nomfichier = ?, extension = ?, taille = ?, dateT = ?, url = ?, commentaire = ?, categorie = ?');
                         $req->execute(array($_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
@@ -71,7 +70,7 @@ logged_only();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Vos fichiers</title>
+        <title>Gérer vos fichiers</title>
         <link rel="stylesheet" href="style.css" />
         <style>#fileup{color: #17e486}</style>
     </head>
@@ -97,7 +96,7 @@ logged_only();
 
         <div id="divtitre" class="inscription">
             C'est ici que vous pourrez télécharger un fichier sur le site,<br>
-            et également voir ce que vous avez déjà téléchargé.<br>
+            mais aussi voir ou supprimer ce que vous avez déjà téléchargé.<br>
         </div>
 
         <div id="upload">
@@ -189,6 +188,7 @@ logged_only();
                             $image = "ExtImage/ppt.png";
                         }
                         ?>
+                        <a href="pageupload.php"><img class="suppr" src="Images/suppr.png" alt="Image suppression" title="Supprimer le fichier '<?php echo $donnees['nomfichier']; ?>'"></a>
                         <img class="profilListe" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>

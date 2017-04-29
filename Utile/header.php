@@ -11,7 +11,7 @@
         <a href="account.php" class="nom" id="sess"><img class="profilheader" src="<?php echo $_SESSION['auth']->photoprofil;; ?>" alt="Image profil">
         <?= $_SESSION['auth']->prenom; ?></a>
         |
-        <a href="pageupload.php" class="nom" id="fileup">Gérer vos fichiers</a>
+        <a href="pageupload.php" class="nom" id="fileup" title="Uploader, visionner, ou supprimer des fichiers">Gérer vos fichiers</a>
         |
         <a href="modif.php" class="nom" id="param">Paramètres</a>
         |
