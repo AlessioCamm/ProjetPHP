@@ -2,6 +2,8 @@
     require_once 'Utile/db.php';
     require_once 'fonctions.php';
     logged_only();
+
+    include_once "Utile/uploadscript.php";
 ?>
 
 
@@ -9,9 +11,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Développement</title>
+        <title>Développement | <?= $_SESSION['auth']->prenom; ?></title>
         <link rel="stylesheet" href="style.css" />
         <style>.barrenom .BarreMenuDev{color:#00aaff}</style>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!-- Ici c'est le script JS-->
+        <script src="js/script.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -27,6 +32,26 @@
         <form class="uploadFileDiv">
             <a href="pageupload.php">Télécharger un fichier</a>
         </form>
+
+        <div class="fenetrePerso">
+            <img class="fenetrePersoPhoto" src="<?php echo $_SESSION['auth']->photoprofil; ?>" alt="Image profil"><br>
+            <form class="fenetrePersoNom">
+                <?php echo $_SESSION['auth']->prenom; ?><br>
+                <?php echo $_SESSION['auth']->nom; ?>
+                <hr class="hrPerso" onclick="ouverture()" onmouseover="barre()" onmouseout="barreOut()">
+            </form>
+            <form method="post" enctype="multipart/form-data" class="fenetrePersoUpload">
+                <input type="file" name="file" id="fileToUpload" class="fenetrePersoButton"><br>
+                <select name="choixCat">
+                    <option value="Informatique">Informatique</option>
+                    <option value="Développement" selected="selected">Développement</option>
+                    <option value="Electronique">Electronique</option>
+                    <option value="Graphisme">Graphisme</option>s
+                </select><br>
+                <textarea name="commentaire" rows="8" cols="20" maxlength="200" placeholder="Fichier de max 20 Mo, catégorie 'Développement' par défaut, commentaire optionnel de 200 caractères. Plus d'infos dans l'onglet 'Gérer vos fichiers'."></textarea><br>
+                <input type="submit" value="Télécharger le fichier" name="submit">
+            </form>
+        </div>
 
         <div id="listeFond">
             <div id="liste">

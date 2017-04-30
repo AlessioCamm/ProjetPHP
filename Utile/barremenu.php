@@ -3,7 +3,7 @@
 
     <a href="dev.php" class="BarreMenuDev"><img src="Utile/ImagesHeader/IconDev.png" alt="" class="ImageMenu"> Développement</a>
 
-    <a href="elec.php" class="BarreMenuElec"><img src="Utile/ImagesHeader/IconElec.png" alt="" class="ImageMenu"> Electronique</a>
+    <a href="elec.php" class="BarreMenuElec"><img src="Utile/ImagesHeader/IconElec.png" alt="" class="ImageMenu"> Électronique</a>
 
     <a href="graph.php" class="BarreMenuGraph"><img src="Utile/ImagesHeader/IconGraph.png" alt="" class="ImageMenu"> Graphisme</a>
 
