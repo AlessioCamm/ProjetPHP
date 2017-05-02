@@ -54,7 +54,7 @@
             ?>
             <div class="uploadnope">
                 Votre fichier n'est pas séléctionné<br>
-                son extension est incorrecte.
+                ou son extension est incorrecte.
             </div>
             <?php
         }
