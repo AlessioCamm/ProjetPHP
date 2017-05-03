@@ -105,8 +105,8 @@ logged_only();
                 <hr>
             </div>
             <div id="formulaireUpload">
-                <strong>ATTENTION : veillez à télécharger des fichiers utiles et tolérés. Ne téléchergez pas de fichiers idiots ou inutiles.<br>
-                Peu importe la catégorie dans laquelle vous voulez mettre votre fichier, faites attention au type de fichier :<br>
+                <strong>ATTENTION : veillez à télécharger des fichiers utiles et tolérés. Ne téléchargez pas de fichiers idiots ou inutiles.<br>
+                Peu importe la catégorie dans laquelle vous voulez mettre votre fichier, faites attention à son extension :<br>
                 Word (.docx, .dotx), Power Point (.ppt, .pptx), PDF (.pdf), texte (.txt), développement Web (.html, .css, .js), Affinity Designer (.afdesign), image (.png, .jpg, .jpeg, .gif), fichier compressé ( .zip, .rar).<br>
                 Taille max d'un fichier : 25 Mo.<br>
                 Vous pouvez toujours compressé vos fichiers avant de les télécharger sur le site si leur taille est nativement de plus de 25 Mo.<br>

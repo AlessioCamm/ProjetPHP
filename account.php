@@ -103,6 +103,12 @@
                                 $image = "ExtImage/ppt.png";
                             }
                         ?>
+                        <?php if($_SESSION['auth']->id == '19'){
+                            ?>
+                            <a href="account.php"><img class="suppr" src="Images/suppr.png" alt="Image suppression" title="Supprimer le fichier '<?php echo $donnees['nomfichier']; ?>'"></a>
+                            <?php
+                        }
+                        ?>
                         <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>

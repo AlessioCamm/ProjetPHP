@@ -27,7 +27,7 @@
 <?php if($_SESSION['auth']->id == '19'){
     ?>
     <div id="headeradmin">
-        Vous êtes en mode administrateur
+        Mode administrateur
     </div>
     <?php
     }
