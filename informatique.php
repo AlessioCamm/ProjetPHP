@@ -29,6 +29,17 @@
             include 'Utile/barremenu.php';
         ?>
 
+        <?php if (!empty($errors)): ?>
+            <div class="alerterror">
+                <p>Vous n'avez pas rempli le formulaire correctement</p>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
         <form class="uploadFileDiv">
             <a href="pageupload.php">Télécharger un fichier</a>
         </form>
@@ -107,8 +118,12 @@
                             <a href="informatique.php"><img class="suppr" src="Images/suppr.png" alt="Image suppression" title="Supprimer le fichier '<?php echo $donnees['nomfichier']; ?>'"></a>
                             <?php
                         }
+
+                        $datetime = date_create($donnees['dateT']);
+                        $date = date_format($datetime,"d/m/Y");
+                        $time = date_format($datetime,"H:i");
                         ?>
-                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateT']; ?></strong><br>
+                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $date; ?> à <?php echo $time; ?></strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>
                         <div class="divfile">

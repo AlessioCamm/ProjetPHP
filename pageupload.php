@@ -4,6 +4,7 @@ require_once 'fonctions.php';
 logged_only();
 
     if(!empty($_FILES)){
+        $errors = array();
 
         $date = date('Y/m/d H:i:s');
         $commentaire = $_POST['commentaire'];
@@ -30,36 +31,19 @@ logged_only();
                         <?php
                     }
                     else{
-                        ?>
-                        <div class="uploadnope">
-                            Un problème innatendu est survenu.
-                        </div>
-                        <?php
+                        $errors['3'] = 'Un problème innatendu est survenu';
                     }
                 }
                 else{
-                    ?>
-                    <div class="uploadnope">
-                        Veuillez n'écrire que des caractères alphanumériques en commentaire<br>
-                        (ainsi que la ponctuation "normale").
-                    </div>
-                    <?php
+                    $errors['2'] = 'Veuillez n\'écrire que des caractères alphanumériques en commentaire';
                 }
             }
             else{
-                ?>
-                <div class="uploadnope">
-                    Votre fichier est trop volumineux.
-                </div>
-                <?php
+                $errors['1'] = 'Votre fichier est trop volumineux';
             }
         }
         else{
-            ?>
-            <div class="uploadnope">
-                L'extension de votre fichier est incorrecte.
-            </div>
-            <?php
+            $errors['0'] = 'Fichier non séléctionné ou extension non autorisée';
         }
     }
 
@@ -98,6 +82,17 @@ logged_only();
             C'est ici que vous pourrez télécharger un fichier sur le site,<br>
             mais aussi voir ou supprimer ce que vous avez déjà téléchargé.<br>
         </div>
+
+        <?php if (!empty($errors)): ?>
+            <div class="alerterror">
+                <p>Vous n'avez pas rempli le formulaire correctement</p>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
 
         <div id="upload">
             <div id="titleupload">

@@ -1,5 +1,6 @@
 <?php
     if(!empty($_FILES)){
+        $errors = array();
 
         $date = date('Y/m/d H:i:s');
         $commentaire = $_POST['commentaire'];
@@ -13,7 +14,7 @@
 
         if(in_array($file_extension, $extensions_autorisees)){
             if($file_taille < 25000000){
-                if(!preg_match('/[]@#&§!ç¡Çø_°|$*€%£+∞÷≠±•¿#‰/', $_POST['commentaire'])) {
+                if(!preg_match('/[]#&§Çø_°|$*€%£+∞÷≠±•¿#‰/', $_POST['commentaire'])) {
                     if (move_uploaded_file($file_tmp_name, $file_dest)) {
                         $req = $pdo->prepare('INSERT INTO fichiers SET id_user = ?, prenom_user = ?, nom_user = ?, photo_user = ?, nomfichier = ?, extension = ?, taille = ?, dateT = ?, url = ?, commentaire = ?, categorie = ?');
                         $req->execute(array($_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
@@ -26,37 +27,19 @@
                         <?php
                     }
                     else{
-                        ?>
-                        <div class="uploadnope">
-                            Un problème innatendu est survenu.
-                        </div>
-                        <?php
+                        $errors['3'] = 'Un problème innatendu est survenu';
                     }
                 }
                 else{
-                    ?>
-                    <div class="uploadnope">
-                        Veuillez n'écrire que des caractères alphanumériques en commentaire<br>
-                        (ainsi que la ponctuation "normale").
-                    </div>
-                    <?php
+                    $errors['2'] = 'Veuillez n\'écrire que des caractères alphanumériques en commentaire';
                 }
             }
             else{
-                ?>
-                <div class="uploadnope">
-                    Votre fichier est trop volumineux.
-                </div>
-                <?php
+                $errors['1'] = 'Votre fichier est trop volumineux';
             }
         }
         else{
-            ?>
-            <div class="uploadnope">
-                Votre fichier n'est pas séléctionné<br>
-                ou son extension est incorrecte.
-            </div>
-            <?php
+            $errors['0'] = 'Fichier non séléctionné ou extension non autorisée';
         }
     }
 ?>
