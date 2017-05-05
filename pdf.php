@@ -3,6 +3,7 @@
     require_once 'fonctions.php';
     logged_only();
 
+    include_once "Utile/deletefilescript.php";
     include_once "Utile/uploadscript.php";
 ?>
 
@@ -79,7 +80,7 @@
                         ?>
                         <?php if($_SESSION['auth']->id == '19'){
                             ?>
-                            <a href="pdf.php"><img class="suppr" src="Images/suppr.png" alt="Image suppression" title="Supprimer le fichier '<?php echo $donnees['nomfichier']; ?>'"></a>
+                            <a href="pdf.php?<?=$donnees['id_fichier']?>"><img class="suppr" src="Images/suppr.png" alt="Image suppression" title="Supprimer le fichier '<?php echo $donnees['nomfichier']; ?>'"></a>
                             <?php
                         }
 

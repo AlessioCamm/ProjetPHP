@@ -3,6 +3,17 @@
     require_once 'fonctions.php';
     logged_only();
 
+    $url = $_SERVER['REQUEST_URI'];
+    $parse = parse_url($url);
+    if(!empty($parse['query'])){
+        $pdo->exec('DELETE FROM utilisateurs WHERE id = "'.$parse['query'].'"');
+        ?>
+        <div class="uploadok">
+            Utilisateur supprimé
+        </div>
+        <?php
+    }
+
     if(!empty($_POST['message'])){
 
         $dateM = date('Y/m/d H:i:s');
@@ -141,7 +152,8 @@
                         -
                         <strong class="idadmin">ID n°<?php echo $donnees['id']; ?></strong>
                         -
-                        <strong class="mailadmin"><?php echo $donnees['mail']; ?></strong><br>
+                        <strong class="mailadmin"><?php echo $donnees['mail']; ?></strong>
+                        <a href="ndu.php?<?=$donnees['id']?>"><img class="supprAd" src="Images/suppr.png" alt="Image suppression" title="Supprimer le fichier '<?php echo $donnees['nomfichier']; ?>'"></a>
                     </p>
                 <?php  }
                 $reponse->closeCursor();

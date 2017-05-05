@@ -431,6 +431,16 @@ html, body {
 .suppr:hover{
     background-color: #630001;
 }
+.supprAd{
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin: 0px 5px 0px 0px;
+    border-radius: 5px;
+}
+.supprAd:hover{
+    background-color: #630001;
+}
 
 /*------------BarreMenu---------------*/
 .barrenom{
@@ -955,6 +965,17 @@ html, body {
     }
     .uploadFileDiv{
         border-radius: 0px;
+        width: 100%;
+    }
+    #formulaireCo{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 5px;
+        background-color: #323338;
+        text-align: left;
+        font-size: 15px;
         width: 100%;
     }
 }
