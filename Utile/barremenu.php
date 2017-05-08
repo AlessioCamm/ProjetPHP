@@ -1,3 +1,4 @@
+<!--Barre ou menu latérale (en fonction de la taille) présent(e) pour la séléction des catégories-->
 <div class="barrenom">
     <a href="informatique.php" class="BarreMenuInfo"><img src="Utile/ImagesHeader/IconPC.png" alt="" class="ImageMenu"> Informatique</a>
 

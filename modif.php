@@ -120,16 +120,16 @@
 
     //Photo de profil
     if(!empty($_FILES)){
-        $file_name = $_FILES['filePhotoProfil']['name'];
-        $file_extension = strrchr($file_name, ".");
-        $extensions_autorisees = array('.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG');
-        $file_taille = $_FILES['filePhotoProfil']['size'];
-        $file_tmp_name = $_FILES['filePhotoProfil']['tmp_name'];
-        $file_dest = 'ProfilPic/'.$file_name;
+        $file_name = $_FILES['filePhotoProfil']['name'];//Nom du fichier
+        $file_extension = strrchr($file_name, ".");//Extension du fichier
+        $extensions_autorisees = array('.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG');//Extensions autorisées
+        $file_taille = $_FILES['filePhotoProfil']['size'];//Taille de la photo en octet
+        $file_tmp_name = $_FILES['filePhotoProfil']['tmp_name'];//Nom du fichier enregistré sur la machine temporairement
+        $file_dest = 'ProfilPic/'.$file_name;//Copie dans dossier
 
-        if(in_array($file_extension, $extensions_autorisees)){
-            if($file_taille < 2000000){
-                if(move_uploaded_file($file_tmp_name, $file_dest)){
+        if(in_array($file_extension, $extensions_autorisees)){//Si extension autorisée
+            if($file_taille < 2000000){//Si taille de max 2 Mo
+                if(move_uploaded_file($file_tmp_name, $file_dest)){//Copie dans le fichier
                     $user_id = $_SESSION['auth']->id;
                     $req = $pdo->prepare('UPDATE utilisateurs SET photoprofil = ? WHERE id = ?')->execute([$file_dest, $user_id]);
                     ?>

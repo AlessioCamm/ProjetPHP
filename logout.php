@@ -1,6 +1,6 @@
 <?php
     session_start();
-    unset($_SESSION['auth']);
+    unset($_SESSION['auth']); //Déconnexion de la session
 ?>
 
 <html>

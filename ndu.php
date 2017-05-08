@@ -3,10 +3,10 @@
     require_once 'fonctions.php';
     logged_only();
 
-    $url = $_SERVER['REQUEST_URI'];
-    $parse = parse_url($url);
-    if(!empty($parse['query'])){
-        $pdo->exec('DELETE FROM utilisateurs WHERE id = "'.$parse['query'].'"');
+    $url = $_SERVER['REQUEST_URI'];//Récupération de l'URL
+    $parse = parse_url($url);//Découpage de l'URL
+    if(!empty($parse['query'])){//Si partie découpée de l'URL
+        $pdo->exec('DELETE FROM utilisateurs WHERE id = "'.$parse['query'].'"');//Suppression de l'utilisateur
         ?>
         <div class="uploadok">
             Utilisateur supprimé

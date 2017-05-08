@@ -1,10 +1,11 @@
+<!--Accueil-->
 <?php
-    require_once 'Utile/db.php';
-    require_once 'fonctions.php';
+    require_once 'Utile/db.php';//Pour la connexion à la base de données
+    require_once 'fonctions.php';//Pour avoir accès aux fonctions dont "logged_only"
     logged_only();
 
-    include_once "Utile/deletefilescript.php";
-    include_once "Utile/uploadscript.php";
+    include_once "Utile/deletefilescript.php";//Pour la suppression des fichiers
+    include_once "Utile/uploadscript.php";//Pour l'upload des fichiers
 ?>
 
 
@@ -30,6 +31,7 @@
             include 'Utile/barremenu.php';
         ?>
 
+        <!--Affichage des erreurs-->
         <?php if (!empty($errors)): ?>
             <div class="alerterror">
                 <p>Vous n'avez pas rempli le formulaire correctement</p>
@@ -67,7 +69,7 @@
 
         <div id="listeFond">
             <div id="liste">
-
+                <!--Boucle pour afficher les fichiers-->
                 <?php
                 $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
                 $reponse = $bdd->query('SELECT * FROM fichiers ORDER BY id_fichier DESC');

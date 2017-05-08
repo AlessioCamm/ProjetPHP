@@ -1,20 +1,21 @@
+<!--Script de suppression du compte-->
 <?php
     session_start();
-    unset($_SESSION['auth']);
+    unset($_SESSION['auth']);//Déconnexion de l'utilisateur
 
-    if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
-        require_once 'Utile/db.php';
+    if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){//Si champs remplis, vérification de mail et mot de passe
+        require_once 'Utile/db.php';//Connexion à la BDD
         require_once 'fonctions.php';
-        $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE mail = :mail');
+        $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE mail = :mail');//Sélection du mail inscrit dans la BDD
         $req->execute(['mail' => $_POST['mail']]);
         $user = $req->fetch();
-        if(password_verify($_POST['pass'], $user->pass)){
+        if(password_verify($_POST['pass'], $user->pass)){//Si mail + mot de passe ok, suppression de la BDD
             $pdo->exec('DELETE FROM utilisateurs WHERE mail = "'.$_POST['mail'].'"');
             ?>
             <html>
                 <head>
                     <meta charset="UTF-8">
-                    <title>Inscription effectuée</title>
+                    <title>Suppression effectuée</title>
                     <link rel="stylesheet" href="style.css" />
                 </head>
                 <body>

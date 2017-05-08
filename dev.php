@@ -64,7 +64,7 @@
                 <input type="submit" value="Télécharger le fichier" name="submit">
             </form>
         </div>
-
+        <!--Affichage via la boucle mais uniquement avec restriction-->
         <div id="listeFond">
             <div id="liste">
                 <?php

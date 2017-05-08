@@ -1,3 +1,4 @@
+<!--Footer présent sur certaines pages-->
 <footer id="footer">
     <hr>
     Projet réalisé dans le cadre du cours de PHP, par Alessio Cammarata - HEH Campus Technique<br>

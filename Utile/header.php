@@ -1,11 +1,11 @@
+<!--Quand la session est démarrée-->
 <?php
-
     if(session_status() == PHP_SESSION_NONE){
         session_start();
     }
-
 ?>
 
+<!--Barre placée au-dessus de tout, permettant la navigation de l'utilisateur-->
 <div id="header">
     <?php if(isset($_SESSION['auth'])):?>
         <a href="account.php" class="nom" id="sess" title="Accueil"><img class="profilheader" src="<?php echo $_SESSION['auth']->photoprofil; ?>" alt="Image profil">
@@ -24,6 +24,7 @@
     <?php endif; ?>
 </div>
 
+<!--Barre présente pour l'administrateur (pour notifier qu'il est bien en mode administrateur)-->
 <?php if($_SESSION['auth']->id == '19'){
     ?>
     <div id="headeradmin">

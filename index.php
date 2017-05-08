@@ -1,23 +1,22 @@
 <?php
-
+//Si non connecté, redirection vers "account.php"
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 if(isset($_SESSION['auth'])){
-
     header('Location: account.php');
     exit();
 }
 
-if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
-    require_once 'Utile/db.php';
+if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){//Si tous les champs sont remplis, alors
+    require_once 'Utile/db.php';//Connexion a la BDD
     require_once 'fonctions.php';
-    $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE mail = :mail');
+    $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE mail = :mail');//Sélection du mail dans la BDD
     $req->execute(['mail' => $_POST['mail']]);
     $user = $req->fetch();
-    if(password_verify($_POST['pass'], $user->pass)){
-        session_start();
-        $_SESSION['auth'] = $user;
+    if(password_verify($_POST['pass'], $user->pass)){//Vérification du mot de passe
+        session_start();//La session démarre
+        $_SESSION['auth'] = $user;//Nom de la session = infos utilisateur
         header('Location: account.php');
         exit();
     }else{
