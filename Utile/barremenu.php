@@ -1,5 +1,5 @@
 <!--Barre ou menu latérale (en fonction de la taille) présent(e) pour la séléction des catégories-->
-<div class="barrenom">
+<div class="barrenom wow slideInLeft">
     <a href="informatique.php" class="BarreMenuInfo"><img src="Utile/ImagesHeader/IconPC.png" alt="" class="ImageMenu"> Informatique</a>
 
     <a href="dev.php" class="BarreMenuDev"><img src="Utile/ImagesHeader/IconDev.png" alt="" class="ImageMenu"> Développement</a>
@@ -12,7 +12,7 @@
 
     <a href="word.php" class="BarreMenuWord"><img src="Utile/ImagesHeader/word.png" alt="" class="ImageMenu"> Word</a>
     -----
-    <a href="account.php" class="BarreMenuAcc">Accueil</a>
+    <a href="account.php" class="BarreMenuAcc"><img src="Images/projetPHP.png" alt="" class="ImageMenu"> Accueil</a>
 </div>
 <?php if($_SESSION['auth']->id == '19'){
     ?>
@@ -24,7 +24,7 @@
 }
 ?>
 
-<div class="barrenom2">
+<div class="barrenom2 wow slideInLeft">
     <a href="informatique.php" class="BarreMenuInfo">Informatique <img src="Utile/ImagesHeader/IconPC.png" alt="" class="ImageMenu"></a>
     <br>
     <a href="dev.php" class="BarreMenuDev">Développement <img src="Utile/ImagesHeader/IconDev.png" alt="" class="ImageMenu"></a>
@@ -38,5 +38,5 @@
     <a href="word.php" class="BarreMenuWord">Word <img src="Utile/ImagesHeader/word.png" alt="" class="ImageMenu"></a>
     <br>
     <br>
-    <a href="account.php" class="BarreMenuAcc">Accueil</a>
+    <a href="account.php" class="BarreMenuAcc">Accueil <img src="Images/projetPHP.png" alt="" class="ImageMenu"></a>
 </div>

@@ -1,22 +1,21 @@
-<!--Script composé de certaines fonctions-->
 <?php
 
-function debug($variable){//Fonction de debug utilisée pour un test
+function debug($variable){
 
     echo '<pre>' . print_r($variable, true) . '</pre>';
 
 }
 
-function str_random($length){ //Fonction de random utilisée pour un test
+function str_random($length){
     $alpha = "0123456789AZERTYUIOPQSDFGHJKLMWXCVBNazertyuiopqsdfghjklmwxcvbn";
     return substr(str_shuffle(str_repeat($alpha, $length)), 0, $length);
 }
 
-function logged_only(){ //Fonction utilisée uniquement pour vérifier si l'utilisateur est connecté
+function logged_only(){
     if(session_status() == PHP_SESSION_NONE){
         session_start();
     }
-    if(!isset($_SESSION['auth'])){//S'il ne l'est pas, il est redirigé vers 'index.php'
+    if(!isset($_SESSION['auth'])){
 
         header('Location: index.php');
         exit();

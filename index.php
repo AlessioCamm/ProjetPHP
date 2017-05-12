@@ -1,5 +1,4 @@
 <?php
-//Si non connecté, redirection vers "account.php"
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
@@ -8,32 +7,21 @@ if(isset($_SESSION['auth'])){
     exit();
 }
 
-if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){//Si tous les champs sont remplis, alors
-    require_once 'Utile/db.php';//Connexion a la BDD
+if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
+    $errors = array();
+
+    require_once 'Utile/db.php';
     require_once 'fonctions.php';
-    $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE mail = :mail');//Sélection du mail dans la BDD
+    $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE mail = :mail');
     $req->execute(['mail' => $_POST['mail']]);
     $user = $req->fetch();
-    if(password_verify($_POST['pass'], $user->pass)){//Vérification du mot de passe
-        session_start();//La session démarre
-        $_SESSION['auth'] = $user;//Nom de la session = infos utilisateur
+    if(password_verify($_POST['pass'], $user->pass)){
+        session_start();
+        $_SESSION['auth'] = $user;
         header('Location: account.php');
         exit();
     }else{
-        ?>
-        <html>
-            <head>
-            <meta charset="UTF-8">
-            <title>Erreur de connexion</title>
-            <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-                <div class="connexionerror">
-                    Identifiant/mail ou mot de passe incorrect
-                </div>
-            </body>
-        </html>
-        <?php
+        $errors['0'] = 'Identifiant/mail ou mot de passe incorrect';
     }
 }
 
@@ -59,6 +47,17 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){//Si tous
             <br>
             <img class="imageAccueil" src="Images/projetPHP.png" alt="Image d'accueil">
         </div>
+
+        <!--Affichage des erreurs-->
+        <?php if (!empty($errors)): ?>
+            <div class="alerterror">
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
 
         <div id="connexion">
             <div id="title">

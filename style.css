@@ -206,7 +206,7 @@ html, body {
     border-radius: 15px;
     width: 70%;
     height: 30px;
-    margin: 0px 0px 10px 0px;
+    margin: 30px 0px 20px 0px;
     font-size: 15px;
 }
 .buttonDelete:hover{
@@ -467,7 +467,7 @@ html, body {
 .ImageMenu{
     height: 15px;
     width: 15px;
-    vertical-align: middle;
+    vertical-align: -2px;
 }
 
 .barrenom2{
@@ -493,12 +493,6 @@ html, body {
 .barrenom2 a:hover{
     color: #0064f4;
 }
-
-.ImageMenu{
-    height: 15px;
-    width: 15px;
-    vertical-align: middle;
-}
 /*---------------HEADER---------------*/
 #header{
     margin: 0px auto 10px auto;
@@ -507,7 +501,6 @@ html, body {
     font-size: 17px;
     height: auto;
     width: 100%;
-    height: auto;
     padding-right: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -669,7 +662,7 @@ html, body {
     width: 200px;
 }
 .uploadok{
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 0px 0px;
     background-color: #00cf48;
     text-align: center;
     font-size: 15px;
@@ -734,10 +727,12 @@ html, body {
     border:0;
 }
 .fileuser{
-    color: #0097e7;
+    color: #ff8d4e;
+    font-weight: 400;
 }
 .filedate{
     color: #12af94;
+    font-weight: 500;
 }
 .filelienListe{
     text-decoration: none;

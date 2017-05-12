@@ -14,11 +14,11 @@ if(!empty($_POST)){//Vérifier les champs
     $errors = array();
     require_once 'Utile/db.php';
 
-    if(empty($_POST['nom']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['nom'])){
+    if(empty($_POST['nom']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ]/', $_POST['nom'])){
         $errors['nom'] = "Votre nom n'est pas valide, veuillez n'entrer que des lettres.";
     }
 
-    if(empty($_POST['prenom']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['prenom'])){
+    if(empty($_POST['prenom']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ]/', $_POST['prenom'])){
         $errors['prenom'] = "Votre prénom n'est pas valide, veuillez n'entrer que des lettres.";
     }
 

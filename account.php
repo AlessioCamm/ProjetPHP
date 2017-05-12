@@ -1,11 +1,10 @@
-<!--Accueil-->
 <?php
-    require_once 'Utile/db.php';//Pour la connexion à la base de données
-    require_once 'fonctions.php';//Pour avoir accès aux fonctions dont "logged_only"
+    require_once 'Utile/db.php';
+    require_once 'fonctions.php';
     logged_only();
 
-    include_once "Utile/deletefilescript.php";//Pour la suppression des fichiers
-    include_once "Utile/uploadscript.php";//Pour l'upload des fichiers
+    include_once "Utile/deletefilescript.php";
+    include_once "Utile/uploadscript.php";
 ?>
 
 
@@ -14,11 +13,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Accueil | <?= $_SESSION['auth']->prenom; ?></title>
+        <link rel="stylesheet" href="animate.css" />
         <link rel="stylesheet" href="style.css" />
         <style>.barrenom .BarreMenuAcc{color: #00aaff} .barrenom2 .BarreMenuAcc{color: #00aaff}</style>
         <script type="text/javascript" src="js/jquery.js"></script>
         <!-- Ici c'est le script JS-->
         <script src="js/script.js" type="text/javascript"></script>
+        <script src="js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
     </head>
 
     <body>
@@ -43,11 +47,11 @@
             </div>
         <?php endif; ?>
 
-        <form class="uploadFileDiv">
+        <form class="uploadFileDiv wow slideInLeft">
             <a href="pageupload.php">Télécharger un fichier</a>
         </form>
 
-        <div class="fenetrePerso">
+        <div class="fenetrePerso wow slideInLeft">
             <img class="fenetrePersoPhoto" src="<?php echo $_SESSION['auth']->photoprofil; ?>" alt="Image profil"><br>
             <form class="fenetrePersoNom">
                 <?php echo $_SESSION['auth']->prenom; ?><br>
@@ -75,7 +79,7 @@
                 $reponse = $bdd->query('SELECT * FROM fichiers ORDER BY id_fichier DESC');
 
                 while($donnees = $reponse->fetch()){?>
-                    <div>
+                    <div class="wow fadeIn">
                         <?php
                             if($donnees['extension'] == ".docx" || $donnees['extension'] == ".DOCX" || $donnees['extension'] == ".dotx" || $donnees['extension'] == ".DOTX" || $donnees['extension'] == ".doc" || $donnees['extension'] == ".DOC"){
                                 $image = "ExtImage/word.png";

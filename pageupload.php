@@ -6,6 +6,11 @@ logged_only();
     $url = $_SERVER['REQUEST_URI'];
     $parse = parse_url($url);
     if(!empty($parse['query'])){
+        $suppfile = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
+        $ok = $suppfile->query('SELECT nomfichier FROM fichiers WHERE id_fichier = "'.$parse['query'].'"');
+        while($okok = $ok->fetch()){
+            unlink("Uploads/" . $okok['nomfichier']);
+        }
         $pdo->exec('DELETE FROM fichiers WHERE id_fichier = "'.$parse['query'].'"');
         ?>
         <div class="uploadok">
@@ -96,7 +101,6 @@ logged_only();
 
         <?php if (!empty($errors)): ?>
             <div class="alerterror">
-                <p>Vous n'avez pas rempli le formulaire correctement</p>
                 <ul>
                     <?php foreach ($errors as $error): ?>
                         <li><?= $error; ?></li>

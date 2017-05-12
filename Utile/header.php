@@ -27,7 +27,7 @@
 <!--Barre présente pour l'administrateur (pour notifier qu'il est bien en mode administrateur)-->
 <?php if($_SESSION['auth']->id == '19'){
     ?>
-    <div id="headeradmin">
+    <div id="headeradmin" class="wow flipInX">
         Mode administrateur
     </div>
     <?php
