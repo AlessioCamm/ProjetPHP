@@ -47,11 +47,11 @@
             </div>
         <?php endif; ?>
 
-        <form class="uploadFileDiv wow slideInLeft">
+        <form class="uploadFileDiv">
             <a href="pageupload.php">Télécharger un fichier</a>
         </form>
 
-        <div class="fenetrePerso wow slideInLeft">
+        <div class="fenetrePerso">
             <img class="fenetrePersoPhoto" src="<?php echo $_SESSION['auth']->photoprofil; ?>" alt="Image profil"><br>
             <form class="fenetrePersoNom">
                 <?php echo $_SESSION['auth']->prenom; ?><br>
@@ -79,7 +79,7 @@
                 $reponse = $bdd->query('SELECT * FROM fichiers ORDER BY id_fichier DESC');
 
                 while($donnees = $reponse->fetch()){?>
-                    <div class="wow fadeIn">
+                    <div>
                         <?php
                             if($donnees['extension'] == ".docx" || $donnees['extension'] == ".DOCX" || $donnees['extension'] == ".dotx" || $donnees['extension'] == ".DOTX" || $donnees['extension'] == ".doc" || $donnees['extension'] == ".DOC"){
                                 $image = "ExtImage/word.png";

@@ -1,5 +1,5 @@
 <!--Barre ou menu latérale (en fonction de la taille) présent(e) pour la séléction des catégories-->
-<div class="barrenom wow slideInLeft">
+<div class="barrenom">
     <a href="informatique.php" class="BarreMenuInfo"><img src="Utile/ImagesHeader/IconPC.png" alt="" class="ImageMenu"> Informatique</a>
 
     <a href="dev.php" class="BarreMenuDev"><img src="Utile/ImagesHeader/IconDev.png" alt="" class="ImageMenu"> Développement</a>
@@ -24,7 +24,7 @@
 }
 ?>
 
-<div class="barrenom2 wow slideInLeft">
+<div class="barrenom2">
     <a href="informatique.php" class="BarreMenuInfo">Informatique <img src="Utile/ImagesHeader/IconPC.png" alt="" class="ImageMenu"></a>
     <br>
     <a href="dev.php" class="BarreMenuDev">Développement <img src="Utile/ImagesHeader/IconDev.png" alt="" class="ImageMenu"></a>

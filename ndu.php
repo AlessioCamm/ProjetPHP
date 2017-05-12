@@ -6,6 +6,12 @@
     $url = $_SERVER['REQUEST_URI'];
     $parse = parse_url($url);
     if(!empty($parse['query'])){
+        $suppfile = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
+        $ok = $suppfile->query('SELECT nomfichier FROM fichiers WHERE id_user = "'.$parse['query'].'"');
+        $suppfile->exec('DELETE FROM fichiers WHERE id_user = "'.$parse['query'].'"');
+        while($okok = $ok->fetch()){
+            unlink("Uploads/" . $okok['nomfichier']);
+        }
         $pdo->exec('DELETE FROM utilisateurs WHERE id = "'.$parse['query'].'"');
         ?>
         <div class="uploadok">
@@ -47,8 +53,13 @@
     <head>
         <meta charset="UTF-8">
         <title>Nouvelles des utilisateurs</title>
+        <link rel="stylesheet" href="animate.css" />
         <link rel="stylesheet" href="style.css" />
         <style>.help{background-color: #17d779; border-radius: 15px;}</style>
+        <script src="js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
     </head>
 
     <body>
@@ -153,7 +164,7 @@
                         <strong class="idadmin">ID n°<?php echo $donnees['id']; ?></strong>
                         -
                         <strong class="mailadmin"><?php echo $donnees['mail']; ?></strong>
-                        <a href="ndu.php?<?=$donnees['id']?>"><img class="supprAd" src="Images/suppr.png" alt="Image suppression" title="Supprimer <?php echo $donnees['prenom']; ?>"></a>
+                        <a href="ndu.php?<?=$donnees['id']?>"><img class="supprAd wow bounceIn" src="Images/suppr.png" alt="Image suppression" title="Supprimer <?php echo $donnees['prenom']; ?>"></a>
                     </p>
                 <?php  }
                 $reponse->closeCursor();
