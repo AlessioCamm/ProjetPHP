@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <title>Fichiers PDF | <?= $_SESSION['auth']->prenom; ?></title>
         <link rel="stylesheet" href="style.css" />
-        <style>.barrenom .BarreMenuPDF{color:#00aaff} .barrenom2 .BarreMenuPDF{color:#00aaff}</style>
+        <style>.barrenom .BarreMenuPDF{color:#00aaff} .barrenom2 .BarreMenuPDF{color: #000000; background-color: #ff8d4e; border-radius: 5px;}</style>
         <script type="text/javascript" src="js/jquery.js"></script>
         <!-- Ici c'est le script JS-->
         <script src="js/script.js" type="text/javascript"></script>

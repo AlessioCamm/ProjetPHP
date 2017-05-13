@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Deconnexion</title>
+        <title>Déconnexion</title>
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>

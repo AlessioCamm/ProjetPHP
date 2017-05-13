@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <title>Développement | <?= $_SESSION['auth']->prenom; ?></title>
         <link rel="stylesheet" href="style.css" />
-        <style>.barrenom .BarreMenuDev{color:#00aaff} .barrenom2 .BarreMenuDev{color:#00aaff}</style>
+        <style>.barrenom .BarreMenuDev{color:#00aaff} .barrenom2 .BarreMenuDev{color: #000000; background-color: #ff8d4e; border-radius: 5px;}</style>
         <script type="text/javascript" src="js/jquery.js"></script>
         <!-- Ici c'est le script JS-->
         <script src="js/script.js" type="text/javascript"></script>

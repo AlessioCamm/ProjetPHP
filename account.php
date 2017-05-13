@@ -15,7 +15,7 @@
         <title>Accueil | <?= $_SESSION['auth']->prenom; ?></title>
         <link rel="stylesheet" href="animate.css" />
         <link rel="stylesheet" href="style.css" />
-        <style>.barrenom .BarreMenuAcc{color: #00aaff} .barrenom2 .BarreMenuAcc{color: #00aaff}</style>
+        <style>.barrenom .BarreMenuAcc{color: #00aaff} .barrenom2 .BarreMenuAcc{color: #000000; background-color: #ff8d4e; border-radius: 5px;}</style>
         <script type="text/javascript" src="js/jquery.js"></script>
         <!-- Ici c'est le script JS-->
         <script src="js/script.js" type="text/javascript"></script>
