@@ -79,7 +79,7 @@
                 $reponse = $bdd->query('SELECT * FROM fichiers ORDER BY id_fichier DESC');
 
                 while($donnees = $reponse->fetch()){?>
-                    <div>
+                    <div class="module">
                         <?php
                             if($donnees['extension'] == ".docx" || $donnees['extension'] == ".DOCX" || $donnees['extension'] == ".dotx" || $donnees['extension'] == ".DOTX" || $donnees['extension'] == ".doc" || $donnees['extension'] == ".DOC"){
                                 $image = "ExtImage/word.png";
