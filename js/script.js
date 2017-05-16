@@ -1,10 +1,10 @@
 function ouverture(){	/* Ouverture et fermeture par clic */
-    if($(".fenetrePerso").height() == 70){
+    if($(".fenetrePerso").height() == 68){
         $(".fenetrePerso").animate({height:260},{duration:500});
         $(".fenetrePersoUpload").stop(true,true).fadeIn();
     }
     if($(".fenetrePerso").height() == 260){
-        $(".fenetrePerso").animate({height:70},{duration:500});
+        $(".fenetrePerso").animate({height:68},{duration:500});
         $(".fenetrePersoUpload").stop(true,true).fadeOut();
     }
 }

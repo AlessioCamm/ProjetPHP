@@ -71,13 +71,8 @@ logged_only();
     <head>
         <meta charset="UTF-8">
         <title>Gérer vos fichiers</title>
-        <link rel="stylesheet" href="animate.css" />
         <link rel="stylesheet" href="style.css" />
         <style>#fileup{color: #17e486}</style>
-        <script src="js/wow.min.js"></script>
-        <script>
-            new WOW().init();
-        </script>
     </head>
 
     <body>

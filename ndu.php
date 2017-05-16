@@ -53,13 +53,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Nouvelles des utilisateurs</title>
-        <link rel="stylesheet" href="animate.css" />
         <link rel="stylesheet" href="style.css" />
         <style>.help{background-color: #17d779; border-radius: 15px;}</style>
-        <script src="js/wow.min.js"></script>
-        <script>
-            new WOW().init();
-        </script>
     </head>
 
     <body>
@@ -155,7 +150,7 @@
             <div id="adminIn">
                 <?php
                 $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
-                $reponse = $bdd->query('SELECT * FROM utilisateurs');
+                $reponse = $bdd->query('SELECT * FROM utilisateurs WHERE id != 19');
                 while($donnees = $reponse->fetch()){?>
                     <p class="adminP">
                         <img class="profilicon" src="<?php echo $donnees['photoprofil']; ?>" alt="Image profil">
@@ -164,7 +159,7 @@
                         <strong class="idadmin">ID n°<?php echo $donnees['id']; ?></strong>
                         -
                         <strong class="mailadmin"><?php echo $donnees['mail']; ?></strong>
-                        <a href="ndu.php?<?=$donnees['id']?>"><img class="supprAd wow bounceIn" src="Images/suppr.png" alt="Image suppression" title="Supprimer <?php echo $donnees['prenom']; ?>"></a>
+                        <a href="ndu.php?<?=$donnees['id']?>"><img class="supprAd" src="Images/suppr.png" alt="Image suppression" title="Supprimer <?php echo $donnees['prenom']; ?>"></a>
                     </p>
                 <?php  }
                 $reponse->closeCursor();

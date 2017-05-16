@@ -43,7 +43,7 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
         ?>
 
         <div id="divtitre">
-            Site de partage/sauvegarde de fichiers informatiques en PHP <br>
+            Plateforme de partage de fichiers informatiques<br>
             <br>
             <img class="imageAccueil" src="Images/projetPHP.png" alt="Image d'accueil">
         </div>
