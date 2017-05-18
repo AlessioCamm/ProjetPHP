@@ -1,4 +1,3 @@
-<!--Connexion à la base de données-->
 <?php
 
     $pdo = new PDO('mysql:host=localhost;dbname=projetphp', 'root', 'root');//connexion à la BDD
