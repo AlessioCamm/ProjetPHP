@@ -87,8 +87,14 @@
                         $datetime = date_create($donnees['dateT']);
                         $date = date_format($datetime,"d/m/Y");
                         $time = date_format($datetime,"H:i");
+
+                        $dateNow = new DateTime($donnees['dateT']);
+                        $dateSite = new DateTime(date('Y/m/d H:i:s'));
+                        $interval = $dateNow->diff($dateSite);
                         ?>
-                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $date; ?> à <?php echo $time; ?></strong><br>
+                        <strong class="filedate2 wow fadeInRight"><?php echo $date; ?><br>
+                            <?php echo $time; ?></strong>
+                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $interval->format('%a'); ?> jour(s), <?php echo $interval->format('%h'); ?> h et <?php echo $interval->format('%i'); ?> m</strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>
                         <div class="divfile">

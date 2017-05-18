@@ -338,9 +338,6 @@ html, body {
 .fileuser{
     color: #0097e7;
 }
-.filedate{
-    color: #12af94;
-}
 .filelien{
     text-decoration: none;
     color: #007ec8;
@@ -736,6 +733,17 @@ html, body {
     color: #12af94;
     font-weight: 500;
 }
+.filedate2{
+    color: #bfbfbf;
+    font-weight: 500;
+    float: right;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 3px;
+}
+.filedate2:hover{
+    color: #12af94;
+}
 .filelienListe{
     text-decoration: none;
     color: #007ec8;
@@ -749,7 +757,7 @@ html, body {
 }
 .filecom{
     color: #000011;
-    border-radius: 15px;
+    border-radius: 5px;
     padding-right: 5px;
     padding-left: 5px;
 
