@@ -15,3 +15,9 @@ function barre(){
 function barreOut(){
     $(".hrPerso").animate({width:110},{duration:300});
 }
+
+/*var filedate = setInterval(
+ function () {
+ $(".filedate").load('account.php .filedate');
+ }, 1000
+ );*/

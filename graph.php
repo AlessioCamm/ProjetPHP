@@ -130,11 +130,11 @@
                         ?>
                         <strong class="filedate2 wow fadeInRight"><?php echo $date; ?><br>
                             <?php echo $time; ?></strong>
-                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $interval->format('%a'); ?> jour(s), <?php echo $interval->format('%h'); ?> h et <?php echo $interval->format('%i'); ?> m</strong><br>
+                        <img class="profil" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil"><strong class="fileuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, il y a <strong class="filedate"><?php echo $interval->format('%a'); ?> jour(s), <?php echo $interval->format('%h'); ?> h et <?php echo $interval->format('%i'); ?> m</strong><br>
                         <hr>
                         <em class="filecom"><strong><?php echo $donnees['commentaire']; ?></strong></em><br>
                         <div class="divfile">
-                            <img class="imagefichier" src="<?php echo $image ?>" alt="Image fichier"><a class="filelien" href="<?php echo $donnees['url']; ?>"><?php echo $donnees['nomfichier']; ?></a><br>
+                            <img class="imagefichier" src="<?php echo $image ?>" alt="Image fichier"><a class="filelien" href="<?php echo $donnees['url']; ?>"><?php echo $donnees['nomfichier']; ?></a><a href="<?php echo $donnees['url']; ?>" download=""><img class="imagedown" src="ExtImage/download.png" alt="Image download" title="Télécharger <?php echo $donnees['nomfichier']; ?>"></a><br>
                             <?php echo ($donnees['taille'] / 1000000); ?> Mo - <?php echo $donnees['categorie']; ?>
                         </div>
                     </div>
