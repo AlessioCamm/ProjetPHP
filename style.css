@@ -371,7 +371,7 @@ html, body {
 .imagedown{
     height: 25px;
     width: 25px;
-    margin: 12px 2px 0px 0px;
+    margin: 12px 4px 0px 0px;
     float: right;
     border-radius: 25px;
     transition: all 0.3s ease-in-out 0s;
