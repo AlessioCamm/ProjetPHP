@@ -13,9 +13,17 @@ logged_only();
         }
         $pdo->exec('DELETE FROM fichiers WHERE id_fichier = "'.$parse['query'].'"');
         ?>
-        <div class="uploadok">
-            Fichier supprimé
-        </div>
+        <script type="text/javascript">
+            function notifRed(){
+                $(".notifRed").stop(true,true).fadeIn();
+            }
+            setTimeout(notifRed, 200);
+
+            function notifRedGo(){
+                $(".notifRed").stop(true,true).fadeOut();
+            }
+            setTimeout(notifRedGo, 3000);
+        </script>
         <?php
     }
 
@@ -40,10 +48,17 @@ logged_only();
                         $req->execute(array($_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
 
                         ?>
-                        <div class="uploadok">
-                            Et voilà !<br>
-                            Votre fichier a été téléchargé avec succès.
-                        </div>
+                        <script type="text/javascript">
+                            function notif(){
+                                $(".notif").stop(true,true).fadeIn();
+                            }
+                            setTimeout(notif, 200);
+
+                            function notifGo(){
+                                $(".notif").stop(true,true).fadeOut();
+                            }
+                            setTimeout(notifGo, 3000);
+                        </script>
                         <?php
                     }
                     else{
@@ -73,6 +88,9 @@ logged_only();
         <title>Gérer vos fichiers</title>
         <link rel="stylesheet" href="style.css" />
         <style>#fileup{color: #17e486}</style>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!-- Ici c'est le script JS-->
+        <script src="js/script.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -80,6 +98,14 @@ logged_only();
         <?php
             include 'Utile/header.php';
         ?>
+
+        <div class="notif">
+            Fichier téléchargé
+        </div>
+
+        <div class="notifRed">
+            Fichier supprimé
+        </div>
 
         <div class="barrenom">
             <a href="account.php">Retour à l'accueil</a>

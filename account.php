@@ -35,6 +35,14 @@
             include 'Utile/barremenu.php';
         ?>
 
+        <div class="notif">
+            Fichier téléchargé
+        </div>
+
+        <div class="notifRed">
+            Fichier supprimé
+        </div>
+
         <!--Affichage des erreurs-->
         <?php if (!empty($errors)): ?>
             <div class="alerterror">

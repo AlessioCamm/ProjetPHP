@@ -696,6 +696,37 @@ html, body {
     height: auto;
     color: #FFFFFF;
 }
+.notif{
+    background-color: #00cf48;
+    height: 30px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+.notifRed{
+    background-color: #ff1f01;
+    height: 30px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+.notifIns{
+    background-color: #0064f4;
+    height: 40px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    display: none;
+}
+
 
 /*-------AfficheFichiers-----------*/
 #fichierListe{
@@ -1003,7 +1034,26 @@ html, body {
         font-size: 15px;
         width: 100%;
     }
+    .notif{
+        background-color: #00cf48;
+        height: 20px;
+        width: 100%;
+        margin: 0px auto 0px auto;
+        border-radius: 0px;
+        text-align: center;
+        font-size: 15px;
+    }
+    .notifRed{
+        background-color: #ff1f01;
+        height: 20px;
+        width: 100%;
+        margin: 0px auto 0px auto;
+        border-radius: 0px;
+        text-align: center;
+        font-size: 15px;
+    }
 }
+
 
 /*-----------------------------------*/
 /*-----------------------------------*/

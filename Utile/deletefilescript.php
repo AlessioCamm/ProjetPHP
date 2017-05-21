@@ -10,9 +10,17 @@
         }
         $pdo->exec('DELETE FROM fichiers WHERE id_fichier = "'.$parse['query'].'"');
         ?>
-        <div class="uploadok">
-            Fichier supprimé
-        </div>
+        <script type="text/javascript">
+            function notifRed(){
+                $(".notifRed").stop(true,true).fadeIn();
+            }
+            setTimeout(notifRed, 200);
+
+            function notifRedGo(){
+                $(".notifRed").stop(true,true).fadeOut();
+            }
+            setTimeout(notifRedGo, 3000);
+        </script>
         <?php
     }
 ?>

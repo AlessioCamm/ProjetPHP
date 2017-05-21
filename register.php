@@ -45,20 +45,13 @@ if(!empty($_POST)){//Vérifier les champs
         $req->execute([$_POST['nom'], $_POST['prenom'], $_POST['mail'], $password]);
 
         ?>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Inscription effectuée</title>
-            <link rel="stylesheet" href="style.css" />
-        </head>
-        <body>
-            <div class="inscriptionok">
-                Vous voilà inscrit(e) !
-                <br>
-                Retournez à <a href="index.php" class="boutonCo">l'accueil</a> pour vous connecter.
-            </div>
-        </body>
-        </html>
+        <script type="text/javascript">
+            function notifIns(){
+                $(".notifIns").stop(true,true).fadeIn();
+            }
+            setTimeout(notifIns, 100);
+
+        </script>
         <?php
     }
 }
@@ -71,6 +64,9 @@ if(!empty($_POST)){//Vérifier les champs
         <meta charset="UTF-8">
         <title>Inscrivez-vous !</title>
         <link rel="stylesheet" href="style.css"/>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!-- Ici c'est le script JS-->
+        <script src="js/script.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -84,6 +80,12 @@ if(!empty($_POST)){//Vérifier les champs
     <div id="divtitre" class="inscription">
         Donc vous n'avez pas de compte ?<br>
         Mais qu'attendez-vous pour en faire un ?!<br>
+    </div>
+
+    <div class="notifIns">
+        Vous voilà inscrit(e) !
+        <br>
+        Retournez à <a href="index.php" class="boutonCo">l'accueil</a> pour vous connecter.
     </div>
 
     <?php if (!empty($errors)): ?>

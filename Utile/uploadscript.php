@@ -21,10 +21,17 @@
                         $req->execute(array($_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
 
                         ?>
-                        <div class="uploadok">
-                            Et voilà !<br>
-                            Votre fichier a été téléchargé avec succès.
-                        </div>
+                        <script type="text/javascript">
+                            function notif(){
+                                $(".notif").stop(true,true).fadeIn();
+                            }
+                            setTimeout(notif, 200);
+
+                            function notifGo(){
+                                $(".notif").stop(true,true).fadeOut();
+                            }
+                            setTimeout(notifGo, 3000);
+                        </script>
                         <?php
                     }
                     else{
