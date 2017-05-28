@@ -25,7 +25,7 @@
                             function notif(){
                                 $(".notif").stop(true,true).fadeIn();
                             }
-                            setTimeout(notif, 200);
+                            setTimeout(notif, 100);
 
                             function notifGo(){
                                 $(".notif").stop(true,true).fadeOut();

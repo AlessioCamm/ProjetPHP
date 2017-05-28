@@ -14,9 +14,17 @@
         }
         $pdo->exec('DELETE FROM utilisateurs WHERE id = "'.$parse['query'].'"');
         ?>
-        <div class="uploadok">
-            Utilisateur supprimé
-        </div>
+        <script type="text/javascript">
+            function notif(){
+                $(".notif").stop(true,true).fadeIn();
+            }
+            setTimeout(notif, 100);
+
+            function notifGo(){
+                $(".notif").stop(true,true).fadeOut();
+            }
+            setTimeout(notifGo, 3000);
+        </script>
         <?php
     }
 
@@ -25,23 +33,37 @@
         $dateM = date('Y/m/d H:i:s');
         $message = $_POST['message'];
 
-        if(!preg_match('/[#&§ç“{¶«¡Çø}_°|¨ô$*€ùÙ%£=+∞…÷≠±\•¿#‰¥ÔØÁÛ»”„Ÿ-]/', $_POST['message'])){
+        if(preg_match('/[^a-zA-Z0-9\-\ç\é\è\à\?\,\!\.\;\@\(\)\"]/', $_POST['message'])){
             $req = $pdo->prepare('INSERT INTO messenger SET id_user = ?, prenom_user = ?, nom_user = ?, photo_user = ?, dateMessage = ?, message = ?');
             $req->execute([$_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $dateM, $message]);
 
             ?>
-            <div class="uploadok">
-                Et voilà !<br>
-                Votre message a bien été envoyé à l'administrateur.
-            </div>
+            <script type="text/javascript">
+                function notifmdp(){
+                    $(".notifmdp").stop(true,true).fadeIn();
+                }
+                setTimeout(notifmdp, 100);
+
+                function notifmdpGo(){
+                    $(".notifmdp").stop(true,true).fadeOut();
+                }
+                setTimeout(notifmdpGo, 3000);
+            </script>
             <?php
         }
         else{
             ?>
-            <div class="uploadnope">
-                La zone de commentaire est vide ou<br>
-                contient des caractères spéciaux non admis.
-            </div>
+            <script type="text/javascript">
+                function notifRed(){
+                    $(".notifRed").stop(true,true).fadeIn();
+                }
+                setTimeout(notifRed, 100);
+
+                function notifRedGo(){
+                    $(".notifRed").stop(true,true).fadeOut();
+                }
+                setTimeout(notifRedGo, 4000);
+            </script>
             <?php
         }
     }
@@ -55,6 +77,9 @@
         <title>Messages</title>
         <link rel="stylesheet" href="style.css" />
         <style>.help{background-color: #17d779; border-radius: 15px;}</style>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!-- Ici c'est le script JS-->
+        <script src="js/script.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -76,27 +101,38 @@
         ?>
     </div>
 
+    <div class="notif">
+        Utilisateur supprimé
+    </div>
+
     <!--Partie User-->
     <?php if($_SESSION['auth']->id != '19'){
-        $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
-        $reponse = $bdd->query('SELECT * FROM utilisateurs');
     ?>
+
+        <div class="notifRed">
+            La zone de commentaire est vide ou<br>
+            contient des caractères spéciaux non admis.
+        </div>
+
+        <div class="notifmdp">
+            Votre message a été envoyé à l'administrateur.
+        </div>
+
     <div id="divtitre" class="inscription">
-        Quelque chose à signaler, <?= $_SESSION['auth']->prenom; ?> ?<br>
-        Faites donc un petit message à l'administrateur !<br>
+        Un souci ? Pas de problème.
     </div>
 
     <div id="upload">
         <div id="titleupload">
-            Un souci ? Pas de problème.
+            <?= $_SESSION['auth']->prenom; ?>,
+            faites donc un petit message à l'administrateur.
             <hr>
         </div>
         <div id="formulaireUpload">
             <strong>
                 ATTENTION : veillez à écrire un message uniquement en cas de souci, de besoin, voir d'incompréhension. Il sera immédiatement envoyé à l'administrateur.<br>
                 N'envoyez pas de message ridicule ou inutile, sous peine de sanction.<br>
-                Votre message doit faire maximum 400 caractères, et ne pas contenir de caractères spéciaux<br>
-                (sauf le point, la virgule, le point-virgule, le point d'interrogation ou d'exclamation).<br>
+                Votre message doit faire maximum 400 caractères, et ne pas contenir de caractères spéciaux.<br>
             </strong>
             <hr>
 
@@ -128,10 +164,14 @@
                 <?php
                 $bdd = new PDO('mysql:host=localhost;dbname=projetphp;charset=utf8', 'root', 'root');
                 $reponse = $bdd->query('SELECT * FROM messenger ORDER BY id_message DESC');
-                while($donnees = $reponse->fetch()){?>
+                while($donnees = $reponse->fetch()){
+                    $datetime = date_create($donnees['dateMessage']);
+                    $date = date_format($datetime,"d/m/Y");
+                    $time = date_format($datetime,"H:i");
+                    ?>
                     <div>
                         <img class="profilNDU" src="<?php echo $donnees['photo_user']; ?>" alt="Image profil">
-                        <strong class="messuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $donnees['dateMessage']; ?></strong><br>
+                        <strong class="messuser"><?php echo $donnees['prenom_user']; ?> <?php echo $donnees['nom_user']; ?></strong>, le <strong class="filedate"><?php echo $date; ?> à <?php echo $time; ?></strong><br>
                         <hr>
                         <em class="messcom"><strong><?php echo $donnees['message']; ?></strong></em><br>
                     </div>

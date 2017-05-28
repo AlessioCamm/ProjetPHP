@@ -14,17 +14,17 @@
             $pass = password_hash($_POST['pass'], PASSWORD_BCRYPT);
             $pdo->prepare('UPDATE utilisateurs SET pass = ? WHERE id = ?')->execute([$pass, $user_id]);
             ?>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-            <div class="connexionok">
-                Votre mot de passe a bien été mis à jour
-            </div>
-            </body>
-            </html>
+            <script type="text/javascript">
+                function notifmdp(){
+                    $(".notifmdp").stop(true,true).fadeIn();
+                }
+                setTimeout(notifmdp, 100);
+
+                function notifmdpGo(){
+                    $(".notifmdp").stop(true,true).fadeOut();
+                }
+                setTimeout(notifmdpGo, 6000);
+            </script>
             <?php
 
         }
@@ -47,18 +47,17 @@
                 $mail = ($_POST['mail']);
                 $pdo->prepare('UPDATE utilisateurs SET mail = ? WHERE id = ?')->execute([$mail, $user_id]);
                 ?>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <link rel="stylesheet" href="style.css" />
-                </head>
-                <body>
-                <div class="connexionok">
-                    Votre adresse mail a bien été mise à jour<br>
-                    (déconnectez-vous puis reconnectez-vous avec votre nouvelle adresse afin que celle-ci prenne effet)
-                </div>
-                </body>
-                </html>
+                <script type="text/javascript">
+                    function notifmail(){
+                        $(".notifmail").stop(true,true).fadeIn();
+                    }
+                    setTimeout(notifmail, 100);
+
+                    function notifmailGo(){
+                        $(".notifmail").stop(true,true).fadeOut();
+                    }
+                    setTimeout(notifmailGo, 6000);
+                </script>
                 <?php
 
             }
@@ -76,17 +75,17 @@
             $nom = ($_POST['nom']);
             $pdo->prepare('UPDATE utilisateurs SET nom = ? WHERE id = ?')->execute([$nom, $user_id]);
             ?>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-            <div class="connexionok">
-                Votre nom a bien été mis à jour
-            </div>
-            </body>
-            </html>
+            <script type="text/javascript">
+                function notifnom(){
+                    $(".notifnom").stop(true,true).fadeIn();
+                }
+                setTimeout(notifnom, 100);
+
+                function notifnomGo(){
+                    $(".notifnom").stop(true,true).fadeOut();
+                }
+                setTimeout(notifnomGo, 6000);
+            </script>
             <?php
 
         }
@@ -102,17 +101,17 @@
             $prenom = ($_POST['prenom']);
             $pdo->prepare('UPDATE utilisateurs SET prenom = ? WHERE id = ?')->execute([$prenom, $user_id]);
             ?>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="style.css" />
-            </head>
-            <body>
-            <div class="connexionok">
-                Votre prénom a bien été mis à jour
-            </div>
-            </body>
-            </html>
+            <script type="text/javascript">
+                function notifprenom(){
+                    $(".notifprenom").stop(true,true).fadeIn();
+                }
+                setTimeout(notifprenom, 100);
+
+                function notifprenomGo(){
+                    $(".notifprenom").stop(true,true).fadeOut();
+                }
+                setTimeout(notifprenomGo, 6000);
+            </script>
             <?php
 
         }
@@ -133,10 +132,17 @@
                     $user_id = $_SESSION['auth']->id;
                     $req = $pdo->prepare('UPDATE utilisateurs SET photoprofil = ? WHERE id = ?')->execute([$file_dest, $user_id]);
                     ?>
-                    <div class="uploadok">
-                        Et voilà ! Votre photo de profil est mise à jour.<br>
-                        Déconnectez/reconnectez-vous afin que les modifications soient sauvegardées.
-                    </div>
+                    <script type="text/javascript">
+                        function notifphoto(){
+                            $(".notifphoto").stop(true,true).fadeIn();
+                        }
+                        setTimeout(notifphoto, 100);
+
+                        function notifphotoGo(){
+                            $(".notifphoto").stop(true,true).fadeOut();
+                        }
+                        setTimeout(notifphotoGo, 6000);
+                    </script>
                     <?php
                 }
                 else {
@@ -173,6 +179,9 @@
         <title>Paramètres</title>
         <link rel="stylesheet" href="style.css" />
         <style>#param{color: #17e486}</style>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!-- Ici c'est le script JS-->
+        <script src="js/script.js" type="text/javascript"></script>
         <script>
             function deleteFunction(){
                 var reponse = confirm("Êtes-vous sûr(e) de vouloir supprimer votre compte ?\n" +
@@ -214,8 +223,33 @@
 
         <div id="actuel">
             <img class="profilinfo" src="<?php echo $_SESSION['auth']->photoprofil;; ?>" alt="Image profil">
-            <strong>Vos infos actuelles :</strong> <?= $_SESSION['auth']->prenom;?> <?= $_SESSION['auth']->nom;?>, <?= $_SESSION['auth']->mail;?>.<br>
+            <strong>Vos infos actuelles :</strong> <?= $_SESSION['auth']->prenom;?> <?= $_SESSION['auth']->nom;?>, <?= $_SESSION['auth']->mail;?><br>
             (Vous devrez vous reconnectez pour effectuer les changements correctement)
+        </div>
+
+        <div class="notifmdp">
+            Mot de passe mis à jour.<br>
+            Déconnectez-vous pour que les changements prennent effets.
+        </div>
+
+        <div class="notifmail">
+            Adresse mail mise à jour.<br>
+            Déconnectez-vous pour que les changements prennent effets.
+        </div>
+
+        <div class="notifnom">
+            Nom mis à jour.<br>
+            Déconnectez-vous pour que les changements prennent effets.
+        </div>
+
+        <div class="notifprenom">
+            Prénom mis à jour.<br>
+            Déconnectez-vous pour que les changements prennent effets.
+        </div>
+
+        <div class="notifphoto">
+            Photo mise à jour.<br>
+            Déconnectez-vous pour que les changements prennent effets.
         </div>
 
         <?php if (!empty($errors)): ?>

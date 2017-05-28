@@ -698,7 +698,7 @@ html, body {
 }
 .notif{
     background-color: #00cf48;
-    height: 30px;
+    min-height: 30px;
     width: 72%;
     margin: 5px auto 5px auto;
     border-radius: 5px;
@@ -708,7 +708,7 @@ html, body {
 }
 .notifRed{
     background-color: #ff1f01;
-    height: 30px;
+    min-height: 30px;
     width: 72%;
     margin: 5px auto 5px auto;
     border-radius: 5px;
@@ -718,12 +718,62 @@ html, body {
 }
 .notifIns{
     background-color: #0064f4;
-    height: 40px;
+    min-height: 40px;
     width: 72%;
     margin: 5px auto 5px auto;
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
+    display: none;
+}
+.notifmdp{
+    background-color: #00cf48;
+    min-height: 30px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+.notifmail{
+    background-color: #00cf48;
+    min-height: 30px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+.notifnom{
+    background-color: #00cf48;
+    min-height: 30px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+.notifprenom{
+    background-color: #00cf48;
+    min-height: 30px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+.notifphoto{
+    background-color: #00cf48;
+    min-height: 30px;
+    width: 72%;
+    margin: 5px auto 5px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
     display: none;
 }
 
