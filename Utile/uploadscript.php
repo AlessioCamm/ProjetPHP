@@ -15,7 +15,7 @@
 
         if(in_array($file_extension, $extensions_autorisees)){
             if($file_taille < 25000000){
-                if(!preg_match('/[]#&§Çø_°|$*€%£+∞÷≠±•¿#‰/', $_POST['commentaire'])) {
+                if(!preg_match('/<?php/', $_POST['commentaire']) && !preg_match('/<?=/', $_POST['commentaire'])) {
                     if (move_uploaded_file($file_tmp_name, $file_dest)) {
                         $req = $pdo->prepare('INSERT INTO fichiers SET id_user = ?, prenom_user = ?, nom_user = ?, photo_user = ?, nomfichier = ?, extension = ?, taille = ?, dateT = ?, url = ?, commentaire = ?, categorie = ?');
                         $req->execute(array($_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $file_name, $file_extension, $file_taille, $date, $file_dest, $commentaire, $_POST['choixCat']));
