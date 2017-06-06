@@ -67,7 +67,7 @@
 
     //Nom
     if(!empty($_POST['nom'])){
-        if(empty($_POST['nom']) || ($_POST['nom'] != $_POST['nomconfirm']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['nom'])){
+        if(empty($_POST['nom']) || ($_POST['nom'] != $_POST['nomconfirm']) || preg_match('/[^a-zA-Z\-\ç\é\è\à]/', $_POST['nom'])){
             $errors['nom'] = "nouveau nom invalide, veillez à respecter les règles.";
         }
         else{
@@ -93,7 +93,7 @@
 
     //Prénom
     if(!empty($_POST['prenom'])){
-        if(empty($_POST['prenom']) || ($_POST['prenom'] != $_POST['prenomconfirm']) || preg_match('/[@#&"(§!çà)“‘{¶«¡Çø}_°^¨ô$*€ùÙ%`£,?;.:=+∞…÷≠±\•¿#‰¥ÔØÁÛ»å’”„´Ÿ-]/', $_POST['prenom'])){
+        if(empty($_POST['prenom']) || ($_POST['prenom'] != $_POST['prenomconfirm']) || preg_match('/[^a-zA-Z\-\ç\é\è\à]/', $_POST['prenom'])){
             $errors['prenom'] = "nouveau prénom invalide, veillez à respecter les règles.";
         }
         else{

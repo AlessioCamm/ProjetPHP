@@ -60,7 +60,7 @@
                     <option value="Electronique" selected="selected">Electronique</option>
                     <option value="Graphisme">Graphisme</option>s
                 </select><br>
-                <textarea name="commentaire" rows="8" cols="20" maxlength="200" placeholder="Fichier de max 20 Mo, catégorie 'Electronique' par défaut, commentaire optionnel de 200 caractères. Plus d'infos dans l'onglet 'Gérer vos fichiers'."></textarea><br>
+                <textarea name="commentaire" rows="8" cols="20" maxlength="200" placeholder="Fichier de max 25 Mo, catégorie 'Electronique' par défaut, commentaire optionnel de 200 caractères. Plus d'infos dans l'onglet 'Gérer vos fichiers'."></textarea><br>
                 <input type="submit" value="Télécharger le fichier" name="submit">
             </form>
         </div>
