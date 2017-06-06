@@ -33,7 +33,7 @@
         $dateM = date('Y/m/d H:i:s');
         $message = $_POST['message'];
 
-        if(preg_match('/[^a-zA-Z0-9\-\ç\é\è\à\?\,\!\.\;\@\(\)\"]/', $_POST['message'])){
+        if(preg_match('/[^a-zA-Z0-9\-\ç\é\è\à\?\,\!\.\;\@\(\)\"]/', $_POST['message']) && !preg_match('/<?php/', $_POST['message']) && !preg_match('/<?=/', $_POST['message'])){
             $req = $pdo->prepare('INSERT INTO messenger SET id_user = ?, prenom_user = ?, nom_user = ?, photo_user = ?, dateMessage = ?, message = ?');
             $req->execute([$_SESSION['auth']->id, $_SESSION['auth']->prenom, $_SESSION['auth']->nom, $_SESSION['auth']->photoprofil, $dateM, $message]);
 
