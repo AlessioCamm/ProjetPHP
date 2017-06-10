@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Fichiers PDF | <?= $_SESSION['auth']->prenom; ?></title>
         <link rel="stylesheet" href="style.css" />
         <style>.barrenom .BarreMenuPDF{color:#00aaff} .barrenom2 .BarreMenuPDF{color: #000000; background-color: #ff8d4e; border-radius: 5px;}</style>

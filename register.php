@@ -62,6 +62,7 @@ if(!empty($_POST)){//Vérifier les champs
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Inscrivez-vous !</title>
         <link rel="stylesheet" href="style.css"/>
         <script type="text/javascript" src="js/jquery.js"></script>

@@ -176,6 +176,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Paramètres</title>
         <link rel="stylesheet" href="style.css" />
         <style>#param{color: #17e486}</style>

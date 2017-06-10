@@ -85,6 +85,7 @@ logged_only();
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Gérer vos fichiers</title>
         <link rel="stylesheet" href="style.css" />
         <style>#fileup{color: #17e486}</style>

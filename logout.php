@@ -8,6 +8,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Déconnexion</title>
         <link rel="stylesheet" href="style.css" />
     </head>

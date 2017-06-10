@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Accueil | <?= $_SESSION['auth']->prenom; ?></title>
         <link rel="stylesheet" href="animate.css" />
         <link rel="stylesheet" href="style.css" />

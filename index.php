@@ -31,6 +31,7 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Projet PHP</title>
         <link rel="stylesheet" href="style.css" />
     </head>

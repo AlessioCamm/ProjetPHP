@@ -74,6 +74,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Alessio Cammarata" />
         <title>Messages</title>
         <link rel="stylesheet" href="style.css" />
         <style>.help{background-color: #17d779; border-radius: 15px;}</style>
