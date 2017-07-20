@@ -38,7 +38,6 @@ if(!empty($_POST) && !empty($_POST['mail']) && !empty($_POST['pass'])){
 
     <body>
 
-
         <?php
             include 'Utile/header.php';
         ?>
